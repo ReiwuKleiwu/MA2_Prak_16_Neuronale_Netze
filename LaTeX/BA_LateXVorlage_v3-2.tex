@@ -135,7 +135,7 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
   % Unbeschriftetes Vorblatt (Leere Seite)
   \pagestyle{empty} % Seite ohne Kopf- und Fußzeilen
   \newpage % Neue Seite
-  \input{leereSeite} % Ausgelagerte LaTeX-Datei (hier: leereSeite.tex) einbinden
+  %\input{leereSeite} % Ausgelagerte LaTeX-Datei (hier: leereSeite.tex) einbinden
   
   \newpage
   
@@ -149,26 +149,33 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
       Fakultät für Informatik und Ingenieurwissenschaften\\
       \hrule\par\rule{0pt}{2cm} % Horizontale Trennlinie  mit 2 cm Abtand nach unten erzeugen
       \LARGE
-      \textsc{B A C H E L O R A R B E I T}\\
+      \textsc{P R A K T I K U M}\\
       \vspace{1cm} % Vertikaler Abstand von 1cm erzeugen
       \huge
-      Titel der Arbeit\\
+      Neuronale Netze\\
       \Large
-      Ggf. Untertitel\\
+      Gruppe M.16\\
       \vspace{1.5cm}
       \large
       Vorgelegt an der TH Köln\\
       Campus Gummersbach\\
-      im Studiengang\\
-      <Ihr Studiengang>\\ 
+      %im Modul\\
+      Mathematik 2\\ 
       \vspace{1.0cm}
       ausgearbeitet von:\\
-      \textsc{Max Mustermann}\\
-      (Matrikelnummer: 12345678)\\
+      \begin{tabular}{c}
+        \textsc{Maximilian Luca Ramacher}
+      \end{tabular}
+      \begin{tabular}{c c}
+        \textsc{Marius Kühnast} &
+        \textsc{Muratcan Garanli}\\
+        \textsc{Kai Murza} &
+        \textsc{Nick Struckmeyer}\\
+      \end{tabular}\\
       \vspace{1.5cm}
       \begin{tabular}{ll} % Einfache Tabelle ohne Rahmen, mit 2 Spalten erzeugen
-          \textbf{Erster Prüfer:} & <Name des 1. Prüfers> \\
-          \textbf{Zweiter Prüfer:} & <Name des 2. Prüfers> \\
+          \textbf{Erster Betreuer:} & Marc Oedingen \\
+          \textbf{Zweiter Betreuer:} & Peter Wagner \\
       \end{tabular}
       \vspace{1.5cm}
       \\Gummersbach, im <Monat der Abgabe>
