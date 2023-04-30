@@ -386,7 +386,7 @@ Bei Verwendung von Tabellen und auch Abbildungen beachten Sie bitte, dass diese 
   \section{Gradientenverfahren}
   \begin{tcolorbox}[title={Inhalte des \textit{Gradientenverfahren}}]
     \begin{itemize}
-      \item Definition von Gradienten
+      \item Definition von Gradienten / Gradientenverfahren
       \item Welche Rolle spielen Gradienten
       \item Mathematisches Prinzip
       \item Gewichte und Biases
@@ -399,18 +399,32 @@ Bei Verwendung von Tabellen und auch Abbildungen beachten Sie bitte, dass diese 
     \end{quotation}
     \end{itemize}
   \end{tcolorbox}
-  \subsection{Definition von Gradienten}\label{Definition_von_Gradienten}
+  \subsection{Definition von Gradienten / Gradientenverfahren}\label{Definition_von_Gradienten}
   %input
+  Ein Gradient ist ein Spaltenvektor der ersten partiellen Ableitung einer Funktion mit “n” Variablen. Dieser beschreibt die Richtung und Stärke der größten Steigung in einem Punkt p in Form eines Vektors.
+  
+  Die Funktion des Gradientenabstiegsverfahrens (engl. gradient descent) ist es, die Variablen, also die Gewichte und Biases, des Netzes so anzupassen, dass die Ausgabewerte
+  der Fehlerfunktion (engl. cost function) weitestgehend minimiert wird und somit die Sicherheit des Netzes in seiner Entscheidungsfindung zu erhöhen.\cite{JH01} \footnote[JH01]{Harrer, J. (2020). Künstliche Neuronale Netze. | Gradientenabstiegsverfahren S.9}
+  \includegraphics[scale=1.00]{gradient_descent.png}
+  \caption{Gradientenabstiegsverfahrens}
 
   \subsection{Welche Rolle spielen Gradienten}\label{Rolle_der_Gradienten}
   %input
+  Das Gradientenabstiegsverfahren ist eine gängige Methode, um ein Minimum in einer Funktion mit “n” Variablen zu finden. Das Verfahren wird genutzt, um einen bestimmten Wert (Fehler (e)) weitgehend zu minimieren.
 
   \subsection{Mathematisches Prinzip}\label{Mathematisches_Prinzip}
   %input
+  Um den Gradienten der Funktion f zu erhalten, wird diese zunächst partiell abgeleitet. D.h. es wird die Funktion für jede Variable einzeln betrachtet und nach dieser abgeleitet. Dabei werden die restlichen Variablen wie eine konstante Zahl behandelt.
+  Die Funktionen werden nun mit Hilfe des Delta Operators in einem Vektor dargestellt, der Ausgangspunkt p kann nun in den Gradienten eingesetzt werden, um den Richtungsvektor der größten Steigung zu erhalten.
+
+  Um den Punkt P jetzt in Richtung des Minimums zu verschieben, wird der Gegenvektor benötigt, welcher auf den Punkt P addiert wird. Um den Gegenvektor zu erhalten, muss
+  der ursprüngliche Vektor nur mit -1 multipliziert werden.
 
   \subsection{Gewichte und Biases}\label{Gewichte_und_Biases}
   %input
-
+  Ein künstliches neuronales Netzt besteht grundlegend aus imaginären Neuronen (u) -auch Units genannt-, welche in unterschiedlichen Schichten angeordnet sind. Jedes Neuron einer Schicht ist mit jedem Neuron in der nächsten Schicht und einem Bias (b) verbunden (vgl. Abb. 1). Um die Relevanz jeder Verbindung zu bewerten, besitzt jede Verbindung ein Gewicht w.
+  \footnote[JH01]{Harrer, J. (2020). Künstliche Neuronale Netze. | Grundlegender Aufbau S.6
+  }
   \newpage
   \section{Loss-Function}
   \begin{tcolorbox}[title={Inhalte der \textit{Loss-Function}}]
@@ -465,7 +479,8 @@ Das Kapitel \textit{Zusammenfassung und Ausblick} enthält folgende formale Aspe
      \begin{thebibliography}{HR08} % 2. {...} => Hier die größte/breiteste Nummer (z.B. 99) oder Kurzbeleg angeben.
        \bibitem[BBoJ]{BBoJ}Bertelsmeier, Birgit (o. J.): Tipps zum Schrei\-b\-en ei\-n\-er Ab\-sch\-luss\-ar\-beit. Fach\-hoch\-schu\-le Köln-Campus Gummersbach, Institut für Informatik. \url{http://lwibs01.gm.fh-koeln.de/blogs/bertelsmeier/files/2008/05/abschlussarbeitsbetreuung.pdf} (29.10.2013).
         \bibitem[HR08]{HR08} Halfmann, Marion; Rühmann, Hans (2008): Merkblatt zur Anfertigung von Projekt-, Bachelor-, Master- und Diplomarbeiten der Fakultät 10. Fachhochschule Köln-Campus Gummersbach.\url{http://www.f10.fh-koeln.de/imperia/md/content/pdfs/studium/tipps/anleitungda270108.pdf} (29.10.2013).
-     \end{thebibliography} 
+        \bibitem[JH01]{JH01} Harrer, J. (2020). Künstliche Neuronale Netze. Gradientenabstiegsverfahren S.9
+      \end{thebibliography} 
   
   % INFO: Biblatex -Ausgabe des  
   % Literaturverzeichnisses (Beispiele):   
