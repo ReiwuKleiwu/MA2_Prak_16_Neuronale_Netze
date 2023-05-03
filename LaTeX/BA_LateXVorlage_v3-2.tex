@@ -129,6 +129,7 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
 %\addbibresource{bib/literatur.bib}      
 
 \usepackage{titlesec}
+%\usepackage{tocloft}
 
 \setcounter{tocdepth}{5} % Set the depth for table of contents
 \setcounter{secnumdepth}{5} % Set the depth for numbered sections
@@ -142,6 +143,10 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
 {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
 \titlespacing*{\subparagraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}[0pt]
+
+%\renewcommand{\cftparaindent}{70pt} % Decrease indentation for \paragraph in table of contents
+%\renewcommand{\cftsubparaindent}{90pt} % Decrease indentation for \subparagraph in table of contents
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOKUMENT                                %%
