@@ -126,7 +126,22 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
 %\usepackage{csquotes} % Für sprachangepasste Anführungszeichen
 %\usepackage[backend=bibtex,style=alphabetic]  
 %           {biblatex}
-%\addbibresource{bib/literatur.bib}           
+%\addbibresource{bib/literatur.bib}      
+
+\usepackage{titlesec}
+
+\setcounter{tocdepth}{5} % Set the depth for table of contents
+\setcounter{secnumdepth}{5} % Set the depth for numbered sections
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}[0pt]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOKUMENT                                %%
@@ -136,8 +151,6 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
   \pagestyle{empty} % Seite ohne Kopf- und Fußzeilen
   \newpage % Neue Seite
   %\input{leereSeite} % Ausgelagerte LaTeX-Datei (hier: leereSeite.tex) einbinden
-  
-  \newpage
   
   % Deckblatt
   \pagestyle{empty}
@@ -260,34 +273,11 @@ Ein Abstract beinhaltet folgende Aspekte \footnote{ Vgl. \cite{SW11}, S. 249}:
   % 
   % Referenzierung erfolgt dann mittels dem Befehl:
   % \ref{marke}
-  \newpage 
-  \section{Zusammenfassung und Ausblick}\label{kap_zusammfAusbl}  
-   %\input{}
-   TEXT FOLGT...
-   
-     %<MERKKASTEN> (für die eigene Verwendung bitte entfernen
-    \vspace{1cm}
- \begin{tcolorbox}[title={Inhalte der \textit{Zusammenfassung und Ausblick}}]
-Das Kapitel \textit{Zusammenfassung und Ausblick} enthält folgende formale Aspekte\footnote{Vgl. \cite{BBoJ},S. 6}:
-\begin{itemize}
-\item Kapitelweise Kurzdarstellung der Inhalte (inklusive Referenzierung auf die Kapitelnummerierung) => Nach dem Motto: \textit{Was wurde wo beschrieben?}
-\item Kurzdarstellung \textit{Problem – Lösungsweg – Ergebnisse}
-\item Rückkopplung auf die Einleitung: Wurde die Zielstellung der Arbeit und die Fragestellung zufriedenstellend beantwortet?
-\item Kritische Bewertung (sofern nicht bereits im Hauptteil geschehen)
-\item Offene Probleme
-\item Richtung der zukünftigen/möglichen Arbeiten
-\item Erläuterung, warum welche Aspekte in der Arbeit nicht erläutert wurden
-\end{itemize}
-  \end{tcolorbox}
-  %</MERKKASTEN>   
-   
-  % Literaturverzeichnis
-   % INFO: Referenzieren auf das Literaturverzeichnis:
-   %
-   % Befehl: \cite{refmarke}
-   % 
-   % "refmarke" ist die Angabe in den geschweiften Klammern bei 
-   % \bibitem[]{refmarke}. 
+    \input{grobes_mathematisches_prinzip.tex}
+    \input{gradient_descent.tex}
+    \input{backpropagation.tex}
+
+    
    \newpage
     \thispagestyle{empty}
    \section{Quellenverzeichnis}
