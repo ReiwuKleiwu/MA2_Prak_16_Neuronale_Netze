@@ -210,39 +210,38 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
   \begin{abstract}
     Platz für das englische Abstract...
   \end{abstract}
-  %<MERKKASTEN> (für die eigene Verwendung bitte entfernen
-    \vspace{1cm}
-  \begin{tcolorbox}[title={Das Abstract}]
-Bei einem Abstract handelt es sich um eine Art \textit{Zusammenfassung} Ihrer Arbeit. Diese kann in deutscher und/oder englischer Sprache verfasst werden. Mithilfe des Abstracts kann der Leser sich zügig orientieren, in wie fern Ihre Arbeit für ihn Relevanz besitzt.\\                                                                      Sprechen Sie unbedingt mit Ihrer Betreuerin/Ihrem Betreuer, ob Sie für Ihre Arbeit ein Abstract benötigen.\\
-Ein Abstract beinhaltet folgende Aspekte \footnote{ Vgl. \cite{SW11}, S. 249}:
-\begin{itemize}
- \item Ziel der Arbeit
- \item Fragestellung der Arbeit
-  \item Herangezogener, theoretischer Ansatz ("Quellen")
-  \item \textit{Optional:} Methodik
-\end{itemize}
-  \end{tcolorbox}
-  %</MERKKASTEN>
+  % %<MERKKASTEN> (für die eigene Verwendung bitte entfernen
+  %   \vspace{1cm}
+  % \begin{tcolorbox}[title={Das Abstract}]
+  % Bei einem Abstract handelt es sich um eine Art \textit{Zusammenfassung} Ihrer Arbeit. Diese kann in deutscher und/oder englischer Sprache verfasst werden. Mithilfe des Abstracts kann der Leser sich zügig orientieren, in wie fern Ihre Arbeit für ihn Relevanz besitzt.\\                                                                      Sprechen Sie unbedingt mit Ihrer Betreuerin/Ihrem Betreuer, ob Sie für Ihre Arbeit ein Abstract benötigen.\\
+  % Ein Abstract beinhaltet folgende Aspekte \footnote{ Vgl. \cite{SW11}, S. 249}:
+  % \begin{itemize}
+  %   \item Ziel der Arbeit
+  %   \item Fragestellung der Arbeit
+  %   \item Herangezogener, theoretischer Ansatz ("Quellen")
+  %   \item \textit{Optional:} Methodik
+  % \end{itemize}
+  % \end{tcolorbox}
+  % %</MERKKASTEN>
 
-%<MERKKASTEN> (für die eigene Verwendung bitte entfernen
-  \vspace{1cm}
-  \begin{tcolorbox}[title={Hinweise zu dieser Dokumentvorlage}]
-  \begin{itemize}
-   \item Es handelt sich hierbei um eine Beispiel-Vorlage für wissenschaftliche Ausarbeitungen.
-Über die konkrete, formale Ausgestaltung Ihrer wissenschaftlichen Arbeit sprechen Sie unbedingt mit Ihre/m Betreuer/in.
-  \item Unabhängig, ob Sie beispielsweise eine Bachelor-, Master- oder Hausarbeit schreiben müssen. Diese Vorlage kann als eine gute Basis für Ihre Arbeit dienen. Passen Sie einfach die Vorlage Ihren Anforderungen entsprechend an.
-  \end{itemize}
-  \end{tcolorbox}
-  %</MERKKASTEN>  
-  
-  \newpage
+  % %<MERKKASTEN> (für die eigene Verwendung bitte entfernen
+  %  \vspace{1cm}
+  %   \begin{tcolorbox}[title={Hinweise zu dieser Dokumentvorlage}]
+  %   \begin{itemize}
+  %   \item Es handelt sich hierbei um eine Beispiel-Vorlage für wissenschaftliche Ausarbeitungen.
+  %     Über die konkrete, formale Ausgestaltung Ihrer wissenschaftlichen Arbeit sprechen Sie unbedingt mit Ihre/m Betreuer/in.
+  %   \item Unabhängig, ob Sie beispielsweise eine Bachelor-, Master- oder Hausarbeit schreiben müssen. Diese Vorlage kann als eine gute Basis für Ihre Arbeit dienen. Passen Sie einfach die Vorlage Ihren Anforderungen entsprechend an.
+  %   \end{itemize}
+  %   \end{tcolorbox}
+  %   %</MERKKASTEN>  
   
   % Inhaltsverzeichnis
+  \newpage
   \tableofcontents
   
   \newpage
   \pagestyle{fancy} % Kopf- und Fußzeilen aktivieren (=> Paket "fancyhdr")
- 
+  
   % Abbildungsverzeichnis  
   % INFO: Abbildung einbinden (Beispiel):
   %  \begin{figure}[h!]
@@ -251,26 +250,26 @@ Ein Abstract beinhaltet folgende Aspekte \footnote{ Vgl. \cite{SW11}, S. 249}:
   %    \caption{Bildunterschrift} 
   %    \label{Marke zum Referenzieren auf die Abbildung}
   %  \end{figure}
+
   \section*{Abbildungsverzeichnis}
   \addcontentsline{toc}{section}{Abbildungsverzeichnis} % Manuellen Eintrag im Inhaltsverzeichnis erzeugen
   \renewcommand{\listfigurename}{} % Name des Abbildungsverzeichnisses ändern
   \thispagestyle{empty}
   \listoffigures
   
-  \newpage
+  %\newpage
   % Tabellenverzeichnis
   %\addcontentsline{toc}{section}{Tabellenverzeichnis}
   %\listoftables
   
   %\newpage
-  
+
   % Hauptteil des Dokuments
   % TIPP: Jedes Kapitel oder jeder Abschnitt in eine eigene
   % LaTeX-Datei (.tex) auslagern.
   % Einbinden der ausgelagerten Dateien in diese Hauptdatei, erfolgt 
   % mittels folgendem Befehl (Beispiel):
   % beispiel.tex => \input{beispiel}
-  \newpage
   % INFO: Querverweise auf Gliederungselemente, Abbildungen 
   %       & Tabellen setzen:
   %
@@ -278,29 +277,30 @@ Ein Abstract beinhaltet folgende Aspekte \footnote{ Vgl. \cite{SW11}, S. 249}:
   % 
   % Referenzierung erfolgt dann mittels dem Befehl:
   % \ref{marke}
-    \input{grobes_mathematisches_prinzip.tex}
-    \input{gradient_descent.tex}
-    \input{backpropagation.tex}
-    \input{trainings_und_testdaten.tex}
-
+  \input{grobes_mathematisches_prinzip.tex}
+  \input{gradient_descent.tex}
+  \input{backpropagation.tex}
+  \input{trainings_und_testdaten.tex}
     
-   \newpage
-    \thispagestyle{empty}
-   \section{Quellenverzeichnis}
-     \subsection{Literatur}
-     \renewcommand{\refname}{} % Literaturverzeichnis ohne Bezeichnung
-     % Variante 1: einfaches, manuelles 
-     % Literaturverzeichnis
-     \begin{thebibliography}{SW11} % 2. {...} => Hier die größte /breiteste Nummer (z.B. 99) oder Kurzbeleg angeben.
-       \bibitem[SW11]{SW11} Stickel-Wolf, Christine; Wolf, Joachim (2011): Wissenschaftliches Lernen und Lerntechniken. Erfolgreich studieren–-gewusst wie!. Wiesbaden: Gabler. 
-     \end{thebibliography} 
-          
-     \subsection{Internetquellen}
-     \begin{thebibliography}{HR08} % 2. {...} => Hier die größte/breiteste Nummer (z.B. 99) oder Kurzbeleg angeben.
-       \bibitem[BBoJ]{BBoJ}Bertelsmeier, Birgit (o. J.): Tipps zum Schrei\-b\-en ei\-n\-er Ab\-sch\-luss\-ar\-beit. Fach\-hoch\-schu\-le Köln-Campus Gummersbach, Institut für Informatik. \url{http://lwibs01.gm.fh-koeln.de/blogs/bertelsmeier/files/2008/05/abschlussarbeitsbetreuung.pdf} (29.10.2013).
-        \bibitem[HR08]{HR08} Halfmann, Marion; Rühmann, Hans (2008): Merkblatt zur Anfertigung von Projekt-, Bachelor-, Master- und Diplomarbeiten der Fakultät 10. Fachhochschule Köln-Campus Gummersbach.\url{http://www.f10.fh-koeln.de/imperia/md/content/pdfs/studium/tipps/anleitungda270108.pdf} (29.10.2013).
-        \bibitem[JH01]{JH01} Harrer, J. (2020). Künstliche Neuronale Netze. Gradientenabstiegsverfahren S.9
-      \end{thebibliography} 
+
+  % Quellenverzeichnis
+  \newpage
+  \thispagestyle{empty}
+  \section{Quellenverzeichnis}
+    \subsection{Literatur}
+    \renewcommand{\refname}{} % Literaturverzeichnis ohne Bezeichnung
+    % Variante 1: einfaches, manuelles 
+    % Literaturverzeichnis
+    \begin{thebibliography}{SW11} % 2. {...} => Hier die größte /breiteste Nummer (z.B. 99) oder Kurzbeleg angeben.
+      \bibitem[SW11]{SW11} Stickel-Wolf, Christine; Wolf, Joachim (2011): Wissenschaftliches Lernen und Lerntechniken. Erfolgreich studieren–-gewusst wie!. Wiesbaden: Gabler. 
+    \end{thebibliography} 
+        
+    \subsection{Internetquellen}
+    \begin{thebibliography}{HR08} % 2. {...} => Hier die größte/breiteste Nummer (z.B. 99) oder Kurzbeleg angeben.
+      \bibitem[BBoJ]{BBoJ}Bertelsmeier, Birgit (o. J.): Tipps zum Schrei\-b\-en ei\-n\-er Ab\-sch\-luss\-ar\-beit. Fach\-hoch\-schu\-le Köln-Campus Gummersbach, Institut für Informatik. \url{http://lwibs01.gm.fh-koeln.de/blogs/bertelsmeier/files/2008/05/abschlussarbeitsbetreuung.pdf} (29.10.2013).
+      \bibitem[HR08]{HR08} Halfmann, Marion; Rühmann, Hans (2008): Merkblatt zur Anfertigung von Projekt-, Bachelor-, Master- und Diplomarbeiten der Fakultät 10. Fachhochschule Köln-Campus Gummersbach.\url{http://www.f10.fh-koeln.de/imperia/md/content/pdfs/studium/tipps/anleitungda270108.pdf} (29.10.2013).
+      \bibitem[JH01]{JH01} Harrer, J. (2020). Künstliche Neuronale Netze. Gradientenabstiegsverfahren S.9
+    \end{thebibliography} 
   
   % INFO: Biblatex -Ausgabe des  
   % Literaturverzeichnisses (Beispiele):   
@@ -322,38 +322,39 @@ Ein Abstract beinhaltet folgende Aspekte \footnote{ Vgl. \cite{SW11}, S. 249}:
     \subsection{Unterabschnitt von Anhang}\label{subsec_UabsAnhang}
     TEXT FOLGT...
   
+
+  % Erklärung über die selbständige Abfassung der Arbeit  
   \newpage
-  
- % Erklärung über die selbständige Abfassung der Arbeit  
- \pagestyle{empty}
- \section*{Erklärung über die selbständige\\Abfassung der Arbeit} % \section*{...}: das *-Symbol erlaubt, dass dieser
- % Gliederungspunkt nicht ins Inhaltsverzeichnis aufgenommen wird
- \addcontentsline{toc}{section}{Erklärung über die selbständige Abfassung der Arbeit}
- Ich versichere, die von mir vorgelegte Arbeit selbständig verfasst zu haben.
- Alle Stellen, die wörtlich oder sinngemäß aus veröffentlichten oder nicht veröffentlichten Arbeiten anderer entnommen sind,
- habe ich als entnommen kenntlich gemacht.\\ 
- Sämtliche Quellen und Hilfsmittel, die ich für die Arbeit benutzt habe, sind
- angegeben. Die Arbeit hat mit gleichem Inhalt bzw. in wesentlichen Teilen noch keiner anderen Prüfungsbehörde vorgelegen.\\\\
-\begin{tabular}{cp{7cm}}
-    & \\ 
-    & \\ \hline
-  \small (Ort, Datum, Unterschrift) & \normalsize \\
-  \end{tabular}
-  
-  %<MERKKASTEN> (für die eigene Verwendung bitte entfernen
-    \vspace{1cm}
- \begin{tcolorbox}[title={Hinweise zur obigen \textit{Erklärung}}]
-\begin{itemize}
-\item Bitte verwenden Sie nur die Erklärung, die Ihnen Ihr \textbf{Prüfungsservice} vorgibt. Ansonsten könnte es passieren, dass Ihre Abschlussarbeit nicht angenommen wird. Fragen Sie im Zweifelsfalle bei Ihrem Prüfungsservice nach.
-\item Sie müssen \textbf{alle abzugebende Exemplare} Ihrer Abschlussarbeit unterzeichnen. Sonst wird die Abschlussarbeit nicht akzeptiert. 
-\item Ein \textbf{Verstoß} gegen die unterzeichnete \textit{Erklärung} kann u.\,a. die Aberkennung Ihres akademischen Titels zur Folge haben.
-\end{itemize}  
-  \end{tcolorbox}
-  %</MERKKASTEN>   
+  \pagestyle{empty}
+  \section*{Erklärung über die selbständige\\Abfassung der Arbeit} % \section*{...}: das *-Symbol erlaubt, dass dieser
+    % Gliederungspunkt nicht ins Inhaltsverzeichnis aufgenommen wird
+    \addcontentsline{toc}{section}{Erklärung über die selbständige Abfassung der Arbeit}
+    Ich versichere, die von mir vorgelegte Arbeit selbständig verfasst zu haben.
+    Alle Stellen, die wörtlich oder sinngemäß aus veröffentlichten oder nicht veröffentlichten Arbeiten anderer entnommen sind,
+    habe ich als entnommen kenntlich gemacht.\\ 
+    Sämtliche Quellen und Hilfsmittel, die ich für die Arbeit benutzt habe, sind
+    angegeben. Die Arbeit hat mit gleichem Inhalt bzw. in wesentlichen Teilen noch keiner anderen Prüfungsbehörde vorgelegen.\\\\
+    \begin{tabular}{cp{7cm}}
+        & \\ 
+        & \\ \hline
+      \small (Ort, Datum, Unterschrift) & \normalsize \\
+      \end{tabular}
+      
+      %<MERKKASTEN> (für die eigene Verwendung bitte entfernen
+        \vspace{1cm}
+    \begin{tcolorbox}[title={Hinweise zur obigen \textit{Erklärung}}]
+    \begin{itemize}
+    \item Bitte verwenden Sie nur die Erklärung, die Ihnen Ihr \textbf{Prüfungsservice} vorgibt. Ansonsten könnte es passieren, dass Ihre Abschlussarbeit nicht angenommen wird. Fragen Sie im Zweifelsfalle bei Ihrem Prüfungsservice nach.
+    \item Sie müssen \textbf{alle abzugebende Exemplare} Ihrer Abschlussarbeit unterzeichnen. Sonst wird die Abschlussarbeit nicht akzeptiert. 
+    \item Ein \textbf{Verstoß} gegen die unterzeichnete \textit{Erklärung} kann u.\,a. die Aberkennung Ihres akademischen Titels zur Folge haben.
+    \end{itemize}  
+    \end{tcolorbox}
+    %</MERKKASTEN>   
    
-\newpage
-% Unbeschriftetes Abschlussblatt (Leere Seite)
-\thispagestyle{empty}
-\input{leereSeite}
+
+  % Unbeschriftetes Abschlussblatt (Leere Seite)
+  \newpage
+  \thispagestyle{empty}
+  \input{leereSeite}
     
 \end{document}
