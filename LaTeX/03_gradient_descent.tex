@@ -16,7 +16,8 @@
 \subsection{Wofür braucht mann das Gradientenverfahren?}\label{subsec:gradientenverfahren:wofuer}
 \subsubsection{Was ist ein Gradient?}\label{subsec:gradientenverfahren:was_ist_gradient}
   %\input{}
-  TEXT FOLGT...
+  Ein Gradient ist ein Spaltenvektor der ersten partiellen Ableitung einer Funktion mit “n” Variablen.
+  Dieser beschreibt die Richtung und Stärke der größten Steigung in einem Punkt p in Form eines Vektors.\cite{JH20}
 
 
 \subsection{Grundkonzepte des Gradientenverfahrens}\label{subsec:gradientenverfahren:grundkonzepte}
@@ -26,22 +27,63 @@
 
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
   %\input{}
-  TEXT FOLGT...
+  Bei der Delta Regel(bzw. allgemein beim Gradientenabstiegsverfahren) vergleicht man gewünscht und berechnete (Ausgabe-) Werte und nimmt mit Hilfe dieses Delta-Terms sukzessive
+  Gewichtsveränderungen vor.
+  Die Gewichte werden mit dem Gradientenabstiegsverfahren (bzw. im speziellen der Delta-Regel) modifiziert.
+  Das Verfahren durchläuft folgende Schritte:
+  \begin{itemize}
+    \item Wahl eines (zufälligen) Startpunktes
+  \end{itemize}
+  \begin{itemize}
+    \item Festsetzung eines Lernparameters
+  \end{itemize}
+  \begin{itemize}
+    \item Festlegung des Abbruchkriteriums
+    \begin{itemize}
+    \item Fixierung der kritischen Differrenz der Gewichtsveränderungen, die nicht unterschritten werden darf
+    \item Spezifizierung der maximalen Anzahl an Iterationen (Wiederholungen), die vorgenommen werden sollen.
+    \end{itemize}
+  \end{itemize}
+  \begin{itemize}
+    \item  Berechnung des Gradienten
+  \end{itemize}
+  \begin{itemize}
+    \item Veränderung der Gewichte
+  \end{itemize}
 
+  Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines der beiden Abbruchkriterien erfüllt ist (siehe dritten Punnkt.)
+  Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
+  Von dieser Position aus soll nun das "tiefste Tal" in der "Hügellandschaft" gesucht werden.\cite{GR10}
+  
+
+
+  Graphische Veranschaulichung 
 \subsubsection{Mehrere Dimensionen}\label{subsec:gradientenverfahren:mehrere_dimensionen}
   %\input{}
-  TEXT FOLGT...
+  Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
+  Von dieser Position aus soll nun das "tiefste Tal" in der "Hügellandschaft" gesucht werden.
+  Im zweidimensionmalen Raum kann ein Abstieg notwendigerweise nur nach links oder rechts erfolgen, während man sich im dreidimensionalen Raum einmal um seine eigene Achse drehen muss,
+  um den steilsten Abstieg bestimmen zu können.
+
+  Mathematisch ist der steilste Abstieg druch den sogenannten Gradienten(daher der Name Gradientenverfahren) repräsentiert bzw. genauer gesagt durch den negativen Gradienten, da der 
+  Gradient selbst den stärksten Anstieg in der "Hügellandschaft" makiert. Der Gradient gibt nicht nur die Richtung, sondern zugleich auch die Steigung des "Hügels" an und stell folglich
+  einen n-1-dimensionalen Vektor dar.\cite{GR10}
 
 
 
 \subsection{Gefährliche Fehlerquellen}\label{subsec:gradientenverfahren:fehlerquellen}
 \subsubsection{Befindet man sich wirklich im globalen Minimum?}\label{subsec:gradientenverfahren:fehlerquellen_globalen_minimum}
   %\input{}
-  TEXT FOLGT...
+  Gradientenabstiegs- und Suchverfahren finden in der Regel nur lokale Minima, abhängig vom gewählten Startpunkt. Durch die fehlende Kenntnis der gesamten n-dimensionalen "Hügellandschaft", die sich hinter 
+  einem "Nebelschleier" verbirgt, ist de facto nie, ausgenommen der gesamte Fehlerterm liegt bei Null (In diesem Fall ist gewährleistet, das es sich um ein globales Minimum handelt)
+  sichergestellt, dass das Verfahren das "tiefte Tal" -d.h. das globale Minimum - findet.
+
 
 \subsubsection{Steckt man in einem lokalen Minimum fest?}\label{subsec:gradientenverfahren:fehlerquellen_lokalen_minimum}
   %\input{}
-  TEXT FOLGT...
+  Ja, Neuronale Netze können in einem lokalen Minimum feststecken, insbesondere bei der Verwendung von nicht-konvexen Kostenfunktionen. Ein lokales Minimum tritt auf, wenn das Netzwerk in einem Punkt des Fehlergradienten
+  auf eine niedrigere Fehlerfunktionsebene trifft, aber in der Nähe dieses Punktes gibt es einen anderen Punkt mit noch niedrigerem Fehler.
+  Da Neuronale Netze häufig große Anzahlen von Parametern haben, kann die Suche nach dem globalen Minimum eine schwierige Aufgabe sein.\cite{HS97}
 
 \subsubsection{Wie löst man dieses Problem?}\label{subsec:gradientenverfahren:fehlerquellen_problem_loesen}
   %\input{}
