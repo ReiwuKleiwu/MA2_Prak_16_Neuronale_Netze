@@ -14,6 +14,9 @@
 
 
 \subsection{Wofür braucht mann das Gradientenverfahren?}\label{subsec:gradientenverfahren:wofuer}
+Das Gradientenverfahren wird genutzt, um das Minimum der Verlustfunktion zu finden. Dort ist der optimale Trainingszustand des Modells gefunden, weil dort der Fehler minimal ist.
+
+
 \subsubsection{Was ist ein Gradient?}\label{subsec:gradientenverfahren:was_ist_gradient}
   %\input{}
   Ein Gradient ist ein Spaltenvektor der ersten partiellen Ableitung einer Funktion mit “n” Variablen.
@@ -23,13 +26,14 @@
 \subsection{Grundkonzepte des Gradientenverfahrens}\label{subsec:gradientenverfahren:grundkonzepte}
 \subsubsection{Grundlage für den Fehlerrückführungs-Algorithmus - Wozu dient er?}\label{subsec:gradientenverfahren:grundlage_fehlerrueckfuehrungsalg}
   %\input{}
-  TEXT FOLGT...
+  Warum soll das Minimum der Verlustfunktion gefunden werden? Das spätere Lernen geschieht durch Anpassung der Gewichte, es wird die Differenz aus der tatsächlichen und der korrekten Ausgabe bestimmt. 
+  Auf die Fehlerbestimmung wird in Kapitel 4 - Backpropagation eingegangen. Dafür ist es notwendig, eine Möglichkeit zu finden, wie der Fehler verringert werden kann.
 
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
   %\input{}
   Bei der Delta Regel(bzw. allgemein beim Gradientenabstiegsverfahren) vergleicht man gewünscht und berechnete (Ausgabe-) Werte und nimmt mit Hilfe dieses Delta-Terms sukzessive
-  Gewichtsveränderungen vor.
-  Die Gewichte werden mit dem Gradientenabstiegsverfahren (bzw. im speziellen der Delta-Regel) modifiziert.
+  Gewichtsveränderungen vor. Die Gewichte werden mit dem Gradientenabstiegsverfahren (bzw. im speziellen der Delta-Regel) modifiziert. Ziel ist ein Minimum der Fehlerfunktion per Näherungsverfahren zu finden.
+
   Das Verfahren durchläuft folgende Schritte:
   \begin{itemize}
     \item Wahl eines (zufälligen) Startpunktes
@@ -51,13 +55,13 @@
     \item Veränderung der Gewichte
   \end{itemize}
 
-  Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines der beiden Abbruchkriterien erfüllt ist (siehe dritten Punnkt.)
+  Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines der beiden Abbruchkriterien erfüllt ist (siehe dritter Punkt).
   Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
   Von dieser Position aus soll nun das "tiefste Tal" in der "Hügellandschaft" gesucht werden.\cite{GR10}
   
 
 
-  Graphische Veranschaulichung 
+  TODO: **Graphische Veranschaulichung, in 3-dim Raum **
 \subsubsection{Mehrere Dimensionen}\label{subsec:gradientenverfahren:mehrere_dimensionen}
   %\input{}
   Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
@@ -78,15 +82,23 @@
   einem "Nebelschleier" verbirgt, ist de facto nie, ausgenommen der gesamte Fehlerterm liegt bei Null (In diesem Fall ist gewährleistet, das es sich um ein globales Minimum handelt)
   sichergestellt, dass das Verfahren das "tiefte Tal" -d.h. das globale Minimum - findet.
 
+  Eine Fehlerquelle ist, dass in der Praxis oft lokale Minima auftreten, da die Fehlerfunktion oft nicht konvex ist, wodurch das Erreichen eines globalen Minimums verhindert wird.
+
+
+
 
 \subsubsection{Steckt man in einem lokalen Minimum fest?}\label{subsec:gradientenverfahren:fehlerquellen_lokalen_minimum}
   %\input{}
-  Ja, Neuronale Netze können in einem lokalen Minimum feststecken, insbesondere bei der Verwendung von nicht-konvexen Kostenfunktionen. Ein lokales Minimum tritt auf, wenn das Netzwerk in einem Punkt des Fehlergradienten
+  Neuronale Netze können in einem lokalen Minimum feststecken, insbesondere bei der Verwendung von nicht-konvexen Kostenfunktionen. Ein lokales Minimum tritt auf, wenn das Netzwerk in einem Punkt des Fehlergradienten
   auf eine niedrigere Fehlerfunktionsebene trifft, aber in der Nähe dieses Punktes gibt es einen anderen Punkt mit noch niedrigerem Fehler.
   Da Neuronale Netze häufig große Anzahlen von Parametern haben, kann die Suche nach dem globalen Minimum eine schwierige Aufgabe sein.\cite{HS97}
 
 \subsubsection{Wie löst man dieses Problem?}\label{subsec:gradientenverfahren:fehlerquellen_problem_loesen}
   %\input{}
   TEXT FOLGT...
+
+  \subsubsection{Wie sollen Initialisierungs-Werte der Gewichte gewählt werden?}\label{subsec:gradientenverfahren:fehlerquellen_init_werte}
+  %\input{}
+  Wenn alle Gewichte mit 0 gewählt werden, ist ein Lernen nicht möglich, also TODO....
 
 
