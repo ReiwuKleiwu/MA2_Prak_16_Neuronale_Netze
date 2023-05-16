@@ -65,6 +65,7 @@ textheight=245mm,textwidth=160mm,includeheadfoot,headsep=1cm,
 footskip=1cm,headheight=14.599pt]{geometry} % Einrichtung der Seite 
 
 \usepackage{graphicx} % Zum Laden von Graphiken
+\usepackage{subcaption}
 % INFO: Graphiken einbinden
 %
 % \includegraphics[scale=1.00]{dateiname}
@@ -147,6 +148,10 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref} % Für Verlinkun
 \renewcommand{\cftparaindent}{70pt} % Decrease indentation for \paragraph in table of contents
 \renewcommand{\cftsubparaindent}{90pt} % Decrease indentation for \subparagraph in table of contents
 
+% für Anführungszeichen z.B. \enquote{abc}
+\usepackage{csquotes}
+
+\usepackage{float} % for the 'H' specifier
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOKUMENT                                %%
