@@ -33,10 +33,9 @@ Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum de
   Das Backpropagation-Verfahren ist eine Möglichkeit den Gradientenabstieg anzuwenden. Auf die Fehlerbestimmung wird in Kapitel 4 - Backpropagation eingegangen. Der Gradientenabstieg liefert also die Grundlage, später das NN zu trainieren.
 
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
-  %\input{}
-  %verstehe noch nicht warum die Delta Regel hier steht @Max
-  Bei der Delta Regel(bzw. allgemein beim Gradientenabstiegsverfahren) vergleicht man gewünscht und berechnete (Ausgabe-) Werte und nimmt mit Hilfe dieses Delta-Terms sukzessive
-  Gewichtsveränderungen vor. Die Gewichte werden mit dem Gradientenabstiegsverfahren (bzw. im speziellen der Delta-Regel) modifiziert. Ziel ist ein Minimum der Fehlerfunktion per Näherungsverfahren zu finden.
+Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
+gegangen. Da wir an dem Minimum der Funktion interessiert sind, bedeutet das für den Algorithmus, dass wir in die negative Richtung des Gradienten gehen müssen. 
+  
 
   Das Verfahren durchläuft folgende Schritte:
   \begin{itemize}
