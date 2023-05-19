@@ -1,0 +1,61 @@
+\begin{tcolorbox}[title={Inhalt}]
+  Die Einleitung umfasst folgende Elemente\footnote{Vgl. u.a. \cite{BBoJ}, S. 5-6}:
+  \begin{itemize}
+    \item Wofür benötigt man Neuronale Netze
+    \item Einsatzgebiete
+    \item Grobes Prinzip
+          \begin{quotation}
+            Eine Einleitung muss auch durch die Arbeit führen. Sie muss dem Leser helfen, sich in der Arbeit und ihrer Struktur zu Recht zu finden. Für jedes Kapitel sollte eine ganz kurze Inhaltsangabe gemacht werden und ggf. motiviert werden, warum es geschrieben wurde. Oft denkt sich ein Autor etwas bei der Struktur seiner Arbeit, auch solche Beweggründe sind dem Leser zu erklären\footnote{\cite{BBoJ}, S. 6}:.
+          \end{quotation}
+  \end{itemize}
+\end{tcolorbox}
+
+\subsection{Wofür benötigt man Neuronale Netze}\label{subsec:einleitung_nn:wofuer_nn}
+Mit neuronalen Netzen lassen sich Probleme lösen, die mit herkömmlichen handgeschriebenen Algorithmen nur schwer bis gar nicht lösbar sind.
+Der große Vorteil neuronaler Netze liegt darin, dass sie selbstständig lernen können, Muster in Daten zu erkennen, wodurch man die entsprechenden Algorithmen nicht mehr von Hand schreiben muss.
+Neuronale Netze sind dabei in der Lage, auch komplexe Muster und Zusammenhänge aus sehr großen Datenmengen zu erkennen und zu extrahieren.
+
+Neuronale Netze können aufgrund ihrer Fähigkeit, schnell und effizient komplexe Muster zu erkennen, auch Aufgaben lösen, für die man normalerweise Menschen benötigen würde, da herkömmliche Algorithmen diese Probleme nicht zuverlässig genug lösen können oder der Entwicklungsaufwand unverhältnismäßig groß in Relation zum Nutzen wäre.
+
+Häufig sind Muster zu komplex, um sie mit einem klassischen Algorithmus erfassen zu können.
+Ein Beispiel hierfür wäre die Erkennung von Tieren auf einem Foto. Die Eigenschaften, die z.B. eine Katze ausmachen von Hand in Bedingungen zu überführen ist nahezu unmöglich, gerade deswegen da die Katzen sehr verschieden aussehen können und aus verschiedenen Perspektiven auf dem Foto zu sehen sein können.
+Mit Hilfe eines neuronalen Netzes kann man aber dennoch mit relativ einfach ein Netz trainieren, das in der Lage ist, solche Bilderkennungsaufgaben zu erledigen.
+
+Neuronale Netze sind häufig auch zuverlässiger bei der Lösung eines Problems, als klassische Algorithmen, da herkömmliche Algorithmen manchmal bestimmte Sonderfälle nicht abdecken können, wohingegen neuronale Netze anpassungsfähiger sind und teilweise mit solchen Sonderfällen umgehen können, da sie diese Fälle aus ihren Trainingsdaten extrahieren konnten.
+Ein Beispiel für solche Fälle könnten autonom fahrende Fahrzeuge sein.
+Bei diesen ist es schwer möglich, Algorithmen zu schreiben, die unter allen Wetter-, Straßen- und Umweltbedingungen zuverlässig funktionieren.
+Schlecht zu sehende Straßenschilder oder Straßen mit undeutlichen Markierungen könnten ein Problem für solche Algorithmen darstellen, da handgeschriebene Algorithmen meistens auf genau solche Straßenmerkmale angewiesen sind wohingegen neuronale Netze möglicherweise mit solchen Fällen umgehen könnten, da sie sich aus den Trainingsdaten mehrere Faktoren abgeleitet haben, an denen sie sich orientieren können und zuverlässiger in der Erkennung von Mustern wie Straßenschildern sind.
+
+\subsection{Einsatzgebiete}\label{subsec:einleitung_nn:einsatzgebiete}
+Neuronale Netze sind äußerst vielfältig und lassen sich für verschiedenste Anwendungen anpassen und trainieren.
+Zu den häufigsten Anwendungsfällen zählen die Bilderkennung und die Verarbeitung von auditiven Daten.
+
+Die Bilderkennung mittels neuronaler Netze lässt sich beispielsweise dazu einsetzen, medizinische Diagnosen durchzuführen, da diese Netze fähig sind, komplexe Krankheitsbilder zu erkennnen.
+Röntgenbilder können von neuronalen Netzen auf Anzeichen von Tumoren untersucht werden und können so medizinisches Fachpersonal bei Ihrer Arbeit unterstützen.
+Auch kann die Bilderkennung genutzt werden, um die Position von Personen oder anderen Objekten auf einem Kamerabild zu identifizieren, was zur Realisierung von autonomem Fahren nützlich ist.
+Dabei werden vor allem sogenannte “convolutional neural networks” verwendet.
+Dabei handelt es sich um eine Variante von neuronalen Netzen, die auf Grund der speziellen verwendeten Schichten und Aktivierungsfunktionen besonders gut für die Bilderkennung geeignet sind.
+
+Die Bilderkennung mittels neuronaler Netze findet auch in der Industrie Anwendung, um hergestellte Produkte automatisiert auf Mängel zu prüfen und auszusortieren.
+
+Neuronale Netze können auch eingesetzt werden, um das Verhalten von Menschen zu analysieren. Anhand von Analytik Daten über die Interaktionen von Nutzern mit beispielsweise einer Website lassen sich mittels neuronaler Netze an den Nutzer angepasste Empfehlungen für Produkte, Videos oder ähnliches generieren.
+Die großen Mengen von anfallenden Daten über Nutzerinteraktionen können von solchen Netzen gefiltert und verarbeitet werden, um Muster im Verhalten der Nutzer zu finden, wodurch man auf die Vorlieben des Anwenders Rückschlüsse ziehen kann.
+
+Neuronale Netze sind grundsätzlich in der Lage, beliebige Arten von Eingabedaten zu verarbeiten.
+So ist es auch möglich, Audio-Daten zu verarbeiten und so beispielsweise Spracherkennung, automatisch generierte Untertitel und Sprachassistenten zu implementieren.
+
+\subsection{Grobes Prinzip}\label{subsec:einleitung_nn_grobes:prinzip}
+Neuronale Netze orientieren sich an der Funktionsweise von menschlichen Gehirnen und versuchen dadurch eine ähnliche Lernfähigkeit zu erzielen.
+Dabei werden Netze aus Neuronen simuliert, um menschliche Lernprozesse und kognitive Fähigkeiten nachzuahmen. 
+
+Die Neuronen neuronaler Netze sind in Schichten organisiert, die untereinander verbunden sind.
+Dabei werden Signale von den Ausgängen der Neuronen der einen Schicht zu den Eingängen der Neuronen der nächsten Schicht geleitet.
+
+Die Neuronen implementieren Algorithmen, die die Eingabedaten verarbeiten und ein Ausgabesignal liefern.
+Die Verbindungen zwischen den Neuronen sind von variabler Stärke und sind der primäre Faktor, der beim Lernprozess verändert wird.
+
+Neuronale Netze werden trainiert, indem man sie auf einem Trainingsdatensatz anwendet und die Verknüpfungen der Neuronen anpasst.
+Der Trainingsdatensatz enthält dabei beispielhafte Eingabedaten und die dazugehörige gewünschte Ausgabe.
+
+Basierend auf der Abweichung der Ergebnisse des neuronalen Netzes von denen der Trainingsdaten werden die Verknüpfungen der Neuronen dann automatisiert angepasst, wodurch ein Lerneffekt erzielt werden kann.
+Nachdem das Netz trainiert wurde, kann man es dann mit Daten speisen, die noch nicht in den Trainingsdaten enthalten waren und das Netz bildet dann eine entsprechende Ausgabe, basierend auf den Zusammenhängen, die es aus dem Trainingsdatensatz extrahiert hat.
