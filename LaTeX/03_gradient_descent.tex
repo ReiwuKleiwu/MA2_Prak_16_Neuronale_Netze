@@ -7,7 +7,7 @@
     \item Grundkonzepte des Gradientenabstiegsverfahren
     \item Gefährliche Fehlerquellen
   \begin{quotation}\noindent
-    Um die Verlustfunktion zu minimieren gibt es verschiedene Optimierungsverfahren. Das wohl bekannteste und am häufigsten eingesetzte Verfahren wird als Gradientenverfahren (Gradient Descent) bezeichnet
+    Um die Verlustfunktion zu minimieren gibt es verschiedene Optimierungsverfahren. Das wohl bekannteste und am häufigsten eingesetzte Verfahren wird als Gradientenverfahren (Gradient Descent) bezeichnet.
     Das Kapitel Gradientenverfahren stellt die Grundlagen dar, die für das Verständnis des Lernprozesses eines neuronalen Netzwerks im nachfolgenden Kapitel erforderlich sind.
   \end{quotation}
   \end{itemize}
@@ -15,15 +15,15 @@
 
 
 \subsection{Wofür braucht mann das Gradientenverfahren?}\label{subsec:gradientenverfahren:wofuer}
-Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum der Verlustfunktion zu finden (bzw. Optimierung generell). Dort ist der optimale Trainingszustand des Modells gefunden, weil dort der Fehler minimal ist.
+Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum der Verlustfunktion zu finden. Dort ist der optimale Trainingszustand des Modells gefunden, weil dort der Fehler minimal ist.
 
 
 \subsubsection{Was ist ein Gradient?}\label{subsec:gradientenverfahren:was_ist_gradient}
   %\input{}
-  Ein Gradient ist ein Spaltenvektor der ersten partiellen Ableitung einer Funktion. 
+  Ein Gradient ist eine Vektorfunktion, bestehend aus den partiellen Ableitungen der Funktion.
   Dieser beschreibt immer die Richtung der größten (steilsten) Steigung in einem Punkt p in Form eines Vektors.\cite{JH20}
 
-  Allgemein ist der Gradient einer Stelle $x^k$ fü den k-ten  Iterationsschritt wie folgt über die partiellen Ableitungen definiert:
+  Allgemein ist der Gradient einer Stelle $x^k$ für den k-ten Iterationsschritt wie folgt über die partiellen Ableitungen definiert:
   $\operatorname{Grad}(f)(x^{(k)}) := \left(\frac{\partial f}{\partial x_{1}}(x^{(k)}), \cdots, \frac{\partial f}{\partial x_{n}}(x^{(k)})\right)$
 
   Hierbei sind $\frac{\partial f}{\partial x_{1}}(x^{(k)}), \dots, \frac{\partial f}{\partial x_{n}}(x^{(k)})$ die partiellen Ableitungen von f nach den einzelnen Variablen $x_{1}, \ldots, x_{n}$ an der Stelle $x^(k)$.
