@@ -2,14 +2,15 @@
 \thispagestyle{empty}
 \section{Gradientenverfahren}\label{sec:gradientenverfahren}   
 \begin{tcolorbox}[title={Inhalte des \textit{Gradientenverfahren}}]
-  \begin{itemize}
-    \item Wofür braucht mann das Gradientenverfahren?
-    \item Grundkonzepte des Gradientenabstiegsverfahren
-    \item Gefährliche Fehlerquellen
   \begin{quotation}\noindent
     Um die Verlustfunktion zu minimieren gibt es verschiedene Optimierungsverfahren. Das wohl bekannteste und am häufigsten eingesetzte Verfahren wird als Gradientenverfahren (Gradient Descent) bezeichnet.
     Das Kapitel Gradientenverfahren stellt die Grundlagen dar, die für das Verständnis des Lernprozesses eines neuronalen Netzwerks im nachfolgenden Kapitel erforderlich sind.
   \end{quotation}
+  \begin{itemize}
+    \item Wofür braucht mann das Gradientenverfahren?
+    \item Grundkonzepte des Gradientenabstiegsverfahren
+    \item Gefährliche Fehlerquellen
+
   \end{itemize}
 \end{tcolorbox}
 
@@ -19,28 +20,26 @@ Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum de
 
 
 \subsubsection{Was ist ein Gradient?}\label{subsec:gradientenverfahren:was_ist_gradient}
-  %\input{}
   Ein Gradient ist eine Vektorfunktion, bestehend aus den partiellen Ableitungen der Funktion.
   Dieser beschreibt immer die Richtung der größten (steilsten) Steigung in einem Punkt p in Form eines Vektors.\cite{LH21}
   \\
   \\ Allgemein ist der Gradient einer Stelle $x^k$ für den k-ten Iterationsschritt wie folgt über die partiellen Ableitungen definiert:
   \\ $\operatorname{Grad}(f)(x^{(k)}) := \left(\frac{\partial f}{\partial x_{1}}(x^{(k)}), \cdots, \frac{\partial f}{\partial x_{n}}(x^{(k)})\right)$
   \\
-  \\Hierbei sind $\frac{\partial f}{\partial x_{1}}(x^{(k)}), \dots, \frac{\partial f}{\partial x_{n}}(x^{(k)})$ die partiellen Ableitungen von f nach den einzelnen Variablen $x_{1}, \ldots, x_{n}$ an der Stelle $x^(k)$.
-  Die partiellen Ableitungen messen die Veränderungsrate von f in Bezug auf jede einzelne Variable an der spezifischen Stelle $x^(k)$. Der Gradient ist dann ein Vektor, der diese Veränderungsraten in jeder Dimension repräsentiert.
-  Die Formel definiert also den Gradienten als einen Vektor, der aus den partiellen Ableitungen der Funktion f nach den einzelnen Variablen besteht, evaluiert an der Stelle $x^(k)$.
+  \\Hierbei sind $\frac{\partial f}{\partial x_{1}}(x^{(k)}), \dots, \frac{\partial f}{\partial x_{n}}(x^{(k)})$ die partiellen Ableitungen von f nach den einzelnen Variablen $x_{1}, \ldots, x_{n}$ an der Stelle $x^{(k)}$.
+  Die partiellen Ableitungen messen die Veränderungsrate von f in Bezug auf jede einzelne Variable an der spezifischen Stelle $x^{(k)}$. Der Gradient ist dann ein Vektor, der diese Veränderungsraten in jeder Dimension repräsentiert.
+  Die Formel definiert also den Gradienten als einen Vektor, der aus den partiellen Ableitungen der Funktion f nach den einzelnen Variablen besteht, evaluiert an der Stelle $x^{(k)}$.
 
 \subsection{Grundkonzepte des Gradientenverfahrens}\label{subsec:gradientenverfahren:grundkonzepte}
 \subsubsection{Grundlage für den Fehlerrückführungs-Algorithmus - Wozu dient das Gradientenverfahren?}\label{subsec:gradientenverfahren:grundlage_fehlerrueckfuehrungsalg}
-  %\input{}
   Warum sollte das Minimum der Verlustfunktion gefunden werden? Das spätere Lernen geschieht durch Anpassung der Gewichte, es wird die Differenz aus der tatsächlichen und der korrekten Ausgabe bestimmt. 
   Schnell kann hier natürlich die Frage aufkommen, warum nähert man sich dem Minimum an und berechnen es nicht. Die Berechnung würde auf das Problem stoßen, dass es unendlich viele Richtungen gibt, in der die Funktion minimal werden könnte. 
 
   Das Backpropagation-Verfahren ist eine Möglichkeit den Gradientenabstieg anzuwenden. Auf die Fehlerbestimmung wird in Kapitel 4 - Backpropagation eingegangen. Der Gradientenabstieg liefert also die Grundlage, später das NN zu trainieren.
 
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
-"Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
-gegangen. Da wir an dem Minimum der Funktion interessiert sind, bedeutet das für den Algorithmus, dass wir in die negative Richtung des Gradienten gehen müssen." \cite{LH21}[Seite 9]
+'Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
+gegangen. Da wir an dem Minimum der Funktion interessiert sind, bedeutet das für den Algorithmus, dass wir in die negative Richtung des Gradienten gehen müssen'\cite{LH21}[Seite 9].
 \\
 Im Fall von künstlichen neuronalen Netzen suchen wir das Mimimum der Verlustfunktion und wollen diesem sehr schnell nahe kommen.
 Wenn wir also in die negative Richtung des Gradienten gehen, wissen wir, dass die Funktion am stärksten abfällt und wir somit auch dem Minimum am schnellsten näher kommen. Das Verfahren durchläuft folgende Schritte:
@@ -71,8 +70,8 @@ Das Gradientenverfahren generiert ausgehend von einem Startpunkt $x^0\epsilon\ma
   Dabei werden sowohl $\alpha^k$ als auch $d^k$  in jedem Iterationsschritt so bestimmt, dass die Folge $x^k$ zu einem stattionären Punkt von $f$ konvergiert.
   %TO-DO Festsetzung eines Lernparameters
   %TO-DO Festlegung des Abbruchkriterium
-  Eine Abbruchbedingung für das Gradientabstiegsverfahren wäre, wenn wir mit der Iteration eine Stelle $x^k\epsilon\mathbb{R}^n$ gefunden haben an der der Gradient von $f$ 0 ist.
-  \\$\text{Grad}(f)(x^{(k)}) = 0 \in \mathbb{R}^n$
+  Eine Abbruchbedingung für das Gradientabstiegsverfahren wäre, wenn wir mit der Iteration eine Stelle $x^k\epsilon\mathbb{R}^n$ gefunden haben an der der Gradient von $f$gleich 0 ist, also
+  $\text{Grad}(f)(x^{(k)}) = 0 \in \mathbb{R}^n$
   %TO-DO Fixierung der kritischen Differrenz der Gewichtsveränderungen, die nicht unterschritten werden darf. Spezifizierung der maximalen Anzahl an Iterationen (Wiederholungen), die vorgenommen werden sollen.
   %TO-DO Berechnung des Gradienten
   \\
@@ -98,42 +97,64 @@ Bei einem normierten Gradienten beträgt die Länge exakt 1, da das in den meist
 Nachdem du die Länge ermittelt hast heißt es nurnoch jede Komponente durch die Länge zu teilen:
   $||\nabla f(1,3)|| = \frac{2 - 2}{\sqrt{2}} \approx (0.707 - 0.707)$
 \\
-\newpage 
-  %TO-DO Veränderung der Gewichte
+\newpage
 Die Veränderung erfolt, indem die alten Gewichte um das Produkt aus Lernrate und Gradienten subtrahiert werden. Durch die Multiplikation mit der Lernrate kann die Größe der Aktualisierung gesteuert werden.
   Eine größere Lernrate führt zu größeren Aktualisierungen und möglicherweise schnellerer Konvergenz, birgt jedoch das Risiko des Overshootings und des Verfehlens des Minimums.
   Eine kleinere Lernrate führt zu kleineren Aktualisierungen und möglicherweise langsamerer Konvergenz, aber mit größerer Stabilität. 
 Als Overshooting bezeichnet man die Situation, indem der Parameter über das gesuchte Minimum hinausschießt und sich von diesem entfernt.
 Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines der beiden Abbruchkriterien erfüllt ist (siehe dritter Punkt).
-  "Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
-  Von dieser Position aus soll nun das "tiefste Tal", in der "Hügellandschaft" gesucht werden."\cite{GR10}
+  'Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen 'Gebirgslandschaft' makiert.
+  Von dieser Position aus soll nun das 'tiefste Tal', in der 'Hügellandschaft' gesucht werden'\cite{GR10}.
   
-  %TODO: **Graphische Veranschaulichung, in 3-dim Raum **
+
 \subsubsection{Mehrere Dimensionen}\label{subsec:gradientenverfahren:mehrere_dimensionen}
-  %\input{}
-  Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
-  Von dieser Position aus soll nun das "tiefste Tal"  in der "Hügellandschaft" gesucht werden.
-  Im zweidimensionmalen Raum kann ein Abstieg notwendigerweise nur nach links oder rechts erfolgen, während man sich im dreidimensionalen Raum einmal um seine eigene Achse drehen muss,
-  um den steilsten Abstieg bestimmen zu können.
-
-  Mathematisch ist der steilste Abstieg druch den sogenannten Gradienten(daher der Name Gradientenverfahren) repräsentiert bzw. genauer gesagt durch den negativen Gradienten, da der 
-  Gradient selbst den stärksten Anstieg in der "Hügellandschaft" makiert. Der Gradient gibt nicht nur die Richtung, sondern zugleich auch die Steigung des "Hügels" an und stell folglich
-  einen n-1-dimensionalen Vektor dar.\cite{GR10}
-
+ Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen 'Gebirgslandschaft' makiert.
+  Von dieser Position aus soll nun das 'tiefste Tal' in der 'Hügellandschaft'gesucht werden.
+  Im zweidimensionmalen Raum kann ein Abstieg notwendigerweise nur nach links oder rechts erfolgen(siehe Abb.2), während man sich im dreidimensionalen Raum einmal um seine eigene Achse drehen muss,
+  um den steilsten Abstieg bestimmen zu können(siehe Abb.3).
+  \\
+  \\
+  \begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Sources/03-01_2_dimensionale_grafik_gd.png}
+        \caption{2-dimensionaler Gradientenabstieg}
+        \label{subsec:2-dimensionaler Gradientenabstieg}
+        %TO-DO Quellennachweise einfügen(Abbildungsverzeichnis)
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Sources/03-3.2.3_geogebra.png}
+        \caption{3-dimensionaler Gradientenabstieg}
+        \label{subsec:3-dimensionaler Gradientenabstieg}
+        %TO-DO Quellennachweise einfügen(Abbildungsverzeichnis)
+    \end{minipage}
+\end{figure}
+\newpage
+ 'Mathematisch ist der steilste Abstieg druch den sogenannten Gradienten(daher der Name Gradientenverfahren) repräsentiert bzw. genauer gesagt durch den negativen Gradienten, da der 
+  Gradient selbst den stärksten Anstieg in der 'Hügellandschaft' makiert. Der Gradient gibt nicht nur die Richtung, sondern zugleich auch die Steigung des 'Hügels', sowie stellt folglich
+  einen n-1-dimensionalen Vektor dar'\cite{GR10}.
 
 \subsection{Gefährliche Fehlerquellen}\label{subsec:gradientenverfahren:fehlerquellen}
 \subsubsection{Steckt man in einem lokalen Minimum fest?}\label{subsec:gradientenverfahren:fehlerquellen_lokalen_minimum}
   %\input{}
   Auf der Suche nach einem Minimum, kann der Algorithmus in einem lokalen Minimum enden und so das erreichen eines globalen Minimums verhindert werden.
-  Ein lokales Minimum tritt auf, wenn das Netzwerk in einem Punkt des Fehlergradienten auf eine niedrigere Fehlerfunktionsebene trifft, aber in der Nähe dieses Punktes einen anderen Punkt mit noch niedrigerem Fehler existiert.
-  Da Neuronale Netze häufig große Anzahlen von Parametern haben, kann die Suche nach dem globalen Minimum eine schwierige Aufgabe sein.\cite{HS97}
+  Ein lokales Minimum tritt auf, wenn das Netzwerk in einem Punkt des Fehlergradienten auf eine niedrigere Fehlerfunktionsebene trifft, aber in der Nähe dieses Punktes einen anderen Punkt mit noch niedrigerem Fehler existiert(siehe Abb.4).
+  Da Neuronale Netze häufig große Anzahlen von Parametern haben, kann die Suche nach dem globalen Minimum eine schwierige Aufgabe sein\cite{HS97}.
+  \\
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Sources/03-3.3.2_3-dimensionaler_abstieg.png}
+    \caption{Lokales und Global Minimum}
+    \label{subsec:lokale-globale-minima}
+\end{figure}
 
 \subsubsection{Befindet man sich wirklich im globalen Minimum?}\label{subsec:gradientenverfahren:fehlerquellen_globalen_minimum}
   %\input{}
-
-  Gradientenabstiegs- und Suchverfahren finden in der Regel nur lokale Minima, abhängig vom gewählten Startpunkt. Durch die fehlende Kenntnis der gesamten n-dimensionalen "Hügellandschaft", die sich hinter 
-  einem "Nebelschleier" verbirgt, ist de facto nie, (ausgenommen der gesamte Fehlerterm liegt bei Null (In diesem Fall ist gewährleistet, das es sich um ein globales Minimum handelt))
-  sichergestellt, dass das Verfahren das "tiefte Tal" -d.h. das globale Minimum - findet.
+  Gradientenabstiegs- und Suchverfahren finden in der Regel nur lokale Minima, abhängig vom gewählten Startpunkt. Durch die fehlende Kenntnis der gesamten n-dimensionalen 'Hügellandschaft', die sich hinter 
+  einem 'Nebelschleier' verbirgt, ist de facto nie, (ausgenommen der gesamte Fehlerterm liegt bei Null (In diesem Fall ist gewährleistet, das es sich um ein globales Minimum handelt))
+  sichergestellt, dass das Verfahren das 'tiefte Tal' -d.h. das globale Minimum - findet.
 
 \subsubsection{Wie löst man dieses Problem?}\label{subsec:gradientenverfahren:fehlerquellen_problem_loesen}
   %\input{}
