@@ -7,7 +7,7 @@
     Das Kapitel Gradientenverfahren stellt die Grundlagen dar, die für das Verständnis des Lernprozesses eines neuronalen Netzwerks im nachfolgenden Kapitel erforderlich sind.
   \end{quotation}
   \begin{itemize}
-    \item Wofür braucht mann das Gradientenverfahren?
+    \item Wofür braucht man das Gradientenverfahren?
     \item Grundkonzepte des Gradientenabstiegsverfahren
     \item Gefährliche Fehlerquellen
 
@@ -15,11 +15,12 @@
 \end{tcolorbox}
 
 
-\subsection{Wofür braucht mann das Gradientenverfahren?}\label{subsec:gradientenverfahren:wofuer}
-Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum der Verlustfunktion zu finden. Dort ist der optimale Trainingszustand des Modells gefunden, weil dort der Fehler minimal ist.
-
-
-\subsubsection{Was ist ein Gradient?}\label{subsec:gradientenverfahren:was_ist_gradient}
+\subsection{Wofür braucht man das Gradientenverfahren?}\label{subsec:gradientenverfahren:wofuer}
+Das Gradientenverfahren (engl. gradient descent) wird genutzt, um ein Minimum einer Funktion mit beliebig vielen Parametern / Dimensionen zu finden.
+Natürlich könnte man nun denken, dass man dies durch bereits bekannte Methoden auch algebraisch berechnen könnte, jedoch wird dies 
+bei einer Funktion mit tausenden oder mehr Parametern sehr schwierig oder gar unmöglich.
+Für neuronale Netze nutzt man das Gradientenverfahren konkret um ein Minimum der Verlustfunktion zu bestimmen. Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne Gewicht und jeden Bias-Wert anpassen, hierdurch "lernt" das neuronale Netz."
+\subsubsection{Was ist der Gradient einer Funtkion?}\label{subsec:gradientenverfahren:was_ist_gradient}
   Ein Gradient ist eine Vektorfunktion, bestehend aus den partiellen Ableitungen der Funktion.
   Dieser beschreibt immer die Richtung der größten (steilsten) Steigung in einem Punkt p in Form eines Vektors.\cite{LH21}
   \\
@@ -29,6 +30,42 @@ Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum de
   \\Hierbei sind $\frac{\partial f}{\partial x_{1}}(x^{(k)}), \dots, \frac{\partial f}{\partial x_{n}}(x^{(k)})$ die partiellen Ableitungen von f nach den einzelnen Variablen $x_{1}, \ldots, x_{n}$ an der Stelle $x^{(k)}$.
   Die partiellen Ableitungen messen die Veränderungsrate von f in Bezug auf jede einzelne Variable an der spezifischen Stelle $x^{(k)}$. Der Gradient ist dann ein Vektor, der diese Veränderungsraten in jeder Dimension repräsentiert.
   Die Formel definiert also den Gradienten als einen Vektor, der aus den partiellen Ableitungen der Funktion f nach den einzelnen Variablen besteht, evaluiert an der Stelle $x^{(k)}$.
+
+\subsubsection{Was ist der Gradient einer Funtkion?}\label{subsec:gradientenverfahren:was_ist_gradient}
+  Der Gradient einer Funktion $f(x_{1}, x_{2}, ... , x_{n})$ ist definiert durch die Funktion $\nabla f(x_{0})$, welche den Spaltenvektor $V$ liefert, in welchem jede Komponente $v_1$ bis $v_n$ die partielle Ableitung der Funktion $f$ nach dem jeweiligen Parameter 
+  $x_{n}$ an der Stelle $x_0$ darstellt. Konkret also: 
+  \renewcommand{\arraystretch}{1.5}
+  \begin{align*}
+    \nabla f(x_0) =\begin{bmatrix}
+          \frac{\partial f}{\partial x_{1}}(x_{0}) \\
+          \frac{\partial f}{\partial x_{2}}(x_{0}) \\
+           \vdots \\
+           \frac{\partial f}{\partial x_{n}}(x_{0}) \\
+         \end{bmatrix}
+  \end{align*}
+  \renewcommand{\arraystretch}{1}
+  Der Gradient an einem Punkt zeigt die Richtung des steilsten Anstiegs der Funktion an diesem Punkt an. Das bedeutet, dass,
+  wenn man in die Richtung des Gradienten geht, man die Funktion so schnell wie möglich erhöht, und wenn man in die entgegengesetzte Richtung geht,
+  also in Richtung des negativen Gradienten, man die Funktion so schnell wie möglich verringert. Dies ist ein entscheidender Aspekt bei dem Gradientenverfahren.
+  \bigbreak\noindent
+  Im folgenden wird der Gradient einer Funktion an einem simplen Beispiel erklärt: 
+  \bigbreak\noindent
+  Sei $f(x, y) = x^2 + y^2$, nun ist der Gradient für den Punkt $x = 5, y = 3$ gesucht. Es gilt
+  \begin{align*}
+    \frac{\partial f}{\partial x}(x,y) = f_{x}(x,y) = 2x\\
+    \\
+    \frac{\partial f}{\partial y}(x,y) = f_{y}(x,y) = 2y\\
+  \end{align*}
+  Somit ergibt sich für unsere Funktion $f$ folgender Gradient für den Punkt $x = 5, y = 3$ 
+  \begin{align*}
+    \nabla f(5, 3) = \begin{bmatrix}
+      2 * 5\\
+      2 * 3\\
+    \end{bmatrix} = \begin{bmatrix}
+      10\\
+      6\\
+    \end{bmatrix}
+  \end{align*}
 
 \subsection{Grundkonzepte des Gradientenverfahrens}\label{subsec:gradientenverfahren:grundkonzepte}
 \subsubsection{Grundlage für den Fehlerrückführungs-Algorithmus - Wozu dient das Gradientenverfahren?}\label{subsec:gradientenverfahren:grundlage_fehlerrueckfuehrungsalg}
