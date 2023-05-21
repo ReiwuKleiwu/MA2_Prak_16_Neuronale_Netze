@@ -22,14 +22,13 @@ Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum de
   %\input{}
   Ein Gradient ist eine Vektorfunktion, bestehend aus den partiellen Ableitungen der Funktion.
   Dieser beschreibt immer die Richtung der größten (steilsten) Steigung in einem Punkt p in Form eines Vektors.\cite{LH21}
-
-  Allgemein ist der Gradient einer Stelle $x^k$ für den k-ten Iterationsschritt wie folgt über die partiellen Ableitungen definiert:
-  $\operatorname{Grad}(f)(x^{(k)}) := \left(\frac{\partial f}{\partial x_{1}}(x^{(k)}), \cdots, \frac{\partial f}{\partial x_{n}}(x^{(k)})\right)$
-
-  Hierbei sind $\frac{\partial f}{\partial x_{1}}(x^{(k)}), \dots, \frac{\partial f}{\partial x_{n}}(x^{(k)})$ die partiellen Ableitungen von f nach den einzelnen Variablen $x_{1}, \ldots, x_{n}$ an der Stelle $x^(k)$.
+  \\
+  \\ Allgemein ist der Gradient einer Stelle $x^k$ für den k-ten Iterationsschritt wie folgt über die partiellen Ableitungen definiert:
+  \\ $\operatorname{Grad}(f)(x^{(k)}) := \left(\frac{\partial f}{\partial x_{1}}(x^{(k)}), \cdots, \frac{\partial f}{\partial x_{n}}(x^{(k)})\right)$
+  \\
+  \\Hierbei sind $\frac{\partial f}{\partial x_{1}}(x^{(k)}), \dots, \frac{\partial f}{\partial x_{n}}(x^{(k)})$ die partiellen Ableitungen von f nach den einzelnen Variablen $x_{1}, \ldots, x_{n}$ an der Stelle $x^(k)$.
   Die partiellen Ableitungen messen die Veränderungsrate von f in Bezug auf jede einzelne Variable an der spezifischen Stelle $x^(k)$. Der Gradient ist dann ein Vektor, der diese Veränderungsraten in jeder Dimension repräsentiert.
-  Die Formel definiert also den Gradienten als einen Vektor, der aus den partiellen Ableitungen der Funktion f nach den einzelnen Variablen besteht, evaluiert an der Stelle 
-  $x^(k)$.
+  Die Formel definiert also den Gradienten als einen Vektor, der aus den partiellen Ableitungen der Funktion f nach den einzelnen Variablen besteht, evaluiert an der Stelle $x^(k)$.
 
 \subsection{Grundkonzepte des Gradientenverfahrens}\label{subsec:gradientenverfahren:grundkonzepte}
 \subsubsection{Grundlage für den Fehlerrückführungs-Algorithmus - Wozu dient das Gradientenverfahren?}\label{subsec:gradientenverfahren:grundlage_fehlerrueckfuehrungsalg}
@@ -40,13 +39,11 @@ Das Gradientenverfahren (engl. gradient descent) wird genutzt, um das Minimum de
   Das Backpropagation-Verfahren ist eine Möglichkeit den Gradientenabstieg anzuwenden. Auf die Fehlerbestimmung wird in Kapitel 4 - Backpropagation eingegangen. Der Gradientenabstieg liefert also die Grundlage, später das NN zu trainieren.
 
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
-Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
-gegangen. Da wir an dem Minimum der Funktion interessiert sind, bedeutet das für den Algorithmus, dass wir in die negative Richtung des Gradienten gehen müssen. \cite{LH21}
+"Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
+gegangen. Da wir an dem Minimum der Funktion interessiert sind, bedeutet das für den Algorithmus, dass wir in die negative Richtung des Gradienten gehen müssen." \cite{LH21}[Seite 9]
+\\
 Im Fall von künstlichen neuronalen Netzen suchen wir das Mimimum der Verlustfunktion und wollen diesem sehr schnell nahe kommen.
-Wenn wir also in die negative Richtung des Gradienten gehen, wissen wir, dass die Funktion am stärksten abfällt und wir somit auch dem Minimum am schnellsten näher kommen.
-
-
-  Das Verfahren durchläuft folgende Schritte:
+Wenn wir also in die negative Richtung des Gradienten gehen, wissen wir, dass die Funktion am stärksten abfällt und wir somit auch dem Minimum am schnellsten näher kommen. Das Verfahren durchläuft folgende Schritte:
   \begin{itemize}
     \item Wahl eines (zufälligen) Startpunktes
   \end{itemize}
@@ -68,51 +65,54 @@ Wenn wir also in die negative Richtung des Gradienten gehen, wissen wir, dass di
   \end{itemize}
 
   %Wahl eines (zufälligen) Startpunktes
-  Das Gradientenverfahren generiert ausgehend von einem Startpunkt $x^0\epsilon\mathbb{R}^n$ eine Folge von Punkten $x^k\epsilon\mathbb{R}^n$ gemäß der Iterationsvorschrift $x^k+1=x^k+\alpha^k d^k, k=0,1,\dots$ 
-  wobei $\alpha^k>0$ eine posirtive Schrittweite ist und $d^k\epsilon\mathbb{R}^n$ eine Abstiegsrichtung. Dabei werden sowohl $\alpha^k$ als auch $d^k$  in jedem Iterationsschritt so bestimmt, dass die Folge $x^k$
-  zu einem stattionären Punkt von $f$ konvergiert.
+Das Gradientenverfahren generiert ausgehend von einem Startpunkt $x^0\epsilon\mathbb{R}^n$ eine Folge von Punkten $x^k\epsilon\mathbb{R}^n$ gemäß der Iterationsvorschrift $x^k+1=x^k+\alpha^k d^k, k=0,1,\dots$ 
+  wobei $\alpha^k>0$ eine positive Schrittweite ist und $d^k\epsilon\mathbb{R}^n$ eine Abstiegsrichtung.
+  \\ 
+  Dabei werden sowohl $\alpha^k$ als auch $d^k$  in jedem Iterationsschritt so bestimmt, dass die Folge $x^k$ zu einem stattionären Punkt von $f$ konvergiert.
   %TO-DO Festsetzung eines Lernparameters
-
   %TO-DO Festlegung des Abbruchkriterium
   Eine Abbruchbedingung für das Gradientabstiegsverfahren wäre, wenn wir mit der Iteration eine Stelle $x^k\epsilon\mathbb{R}^n$ gefunden haben an der der Gradient von $f$ 0 ist.
-  $\text{Grad}(f)(x^{(k)}) = 0 \in \mathbb{R}^n$
-
-  
+  \\$\text{Grad}(f)(x^{(k)}) = 0 \in \mathbb{R}^n$
   %TO-DO Fixierung der kritischen Differrenz der Gewichtsveränderungen, die nicht unterschritten werden darf. Spezifizierung der maximalen Anzahl an Iterationen (Wiederholungen), die vorgenommen werden sollen.
-  
   %TO-DO Berechnung des Gradienten
-  Der Gradient ist ein Vektor der aus den partiellen Ableitungen der Komponenten einer Funktion besteht. Unsere Funktion hat zwei Komponenten: x und y.
+  \\
+\newline Der Gradient ist ein Vektor der aus den partiellen Ableitungen der Komponenten einer Funktion besteht. Unsere Funktion hat zwei Komponenten: x und y.
   Das heißt der Gradient unserer Funktion ist ein Vektor mit Zwei Komponenten.
-  Um die partielle Ableitung einer Komponente zu bilden betrachten wir alle Glieder der Formel in der diese Komponente vorkommt und leiten die ab. Die partielle Ableitungen sind also:
-  $f_x(x, y) = 2x + 2y - 6 \quad \text{und} \quad f_y(x, y) = 2x + 4y - 16$
-  Damit siehr unser Gradient wie folgt aus:
-  $\nabla f(x, y) = (2x + 2y - 6, 2x + 4y - 16)$
-
+  Um die partielle Ableitung einer Komponente zu bilden betrachten wir alle Glieder der Formel in der diese Komponente vorkommt und leiten die ab. 
+  \\Die partielle Ableitungen sind also:
+  \\$f_x(x, y) = 2x + 2y - 6 \quad \text{und} \quad f_y(x, y) = 2x + 4y - 16$
+  \\
+  \\Damit sieht unser Gradient wie folgt aus:
+  \newline $\nabla f(x, y) = (2x + 2y - 6, 2x + 4y - 16)$
+  \\
+  \\
   Nun bestimmen wir den Gradienten ausgehend von unserem Startpunkt P=(1,3). Also einfach den Punkt einsetzen. 
-  $\nabla f(1,3) = (2 \cdot 1 + 2 \cdot 3 - 6, 2 \cdot 1 + 4 \cdot 3 - 16) = (2 - 2)$
-
-  Bei einem normierten Gradienten beträgt die Länge exakt 1, da das in den meisten fällen nicht zutrifft müssen wir den Gradienten zu aller erst normieren bevor wir ihn für unsere Suchgerade verwenden können. Um einen Vektor auf die Länge 1 zu normieren wird er mittels Skalarmultiplikation mit seiner derzeitigen Länge dividiert. Logisch, wenn du eine Zahl durch sich selbst teilst kommst du immer auf 1 ;D
+  \newline $\nabla f(1,3) = (2 \cdot 1 + 2 \cdot 3 - 6, 2 \cdot 1 + 4 \cdot 3 - 16) = (2 - 2)$
+\\
+\\
+Bei einem normierten Gradienten beträgt die Länge exakt 1, da das in den meisten fällen nicht zutrifft müssen wir den Gradienten zu aller erst normieren bevor wir ihn für unsere Suchgerade verwenden können. Um einen Vektor auf die Länge 1 zu normieren wird er mittels Skalarmultiplikation mit seiner derzeitigen Länge dividiert. Logisch, wenn du eine Zahl durch sich selbst teilst kommst du immer auf 1 ;D
   Die Länge des Gradienten ermittelst du indem du den Betrag bildest, also:
-  $|\nabla f(1,3)| = \sqrt{2^2 + (-2)^2} \approx 2.83$
-
-  Nachdem du die Länge ermittelt hast heißt es nurnoch jede Komponente durch die Länge zu teilen:
+  \newline $|\nabla f(1,3)| = \sqrt{2^2 + (-2)^2} \approx 2.83$
+\\
+\\
+Nachdem du die Länge ermittelt hast heißt es nurnoch jede Komponente durch die Länge zu teilen:
   $||\nabla f(1,3)|| = \frac{2 - 2}{\sqrt{2}} \approx (0.707 - 0.707)$
-
+\\
+\newpage 
   %TO-DO Veränderung der Gewichte
-  Die Veränderung erfolt, indem die alten Gewichte um das Produkt aus Lernrate und Gradienten subtrahiert werden. Durch die Multiplikation mit der Lernrate kann die Größe der Aktualisierung gesteuert werden.
+Die Veränderung erfolt, indem die alten Gewichte um das Produkt aus Lernrate und Gradienten subtrahiert werden. Durch die Multiplikation mit der Lernrate kann die Größe der Aktualisierung gesteuert werden.
   Eine größere Lernrate führt zu größeren Aktualisierungen und möglicherweise schnellerer Konvergenz, birgt jedoch das Risiko des Overshootings und des Verfehlens des Minimums.
-  Eine kleinere Lernrate führt zu kleineren Aktualisierungen und möglicherweise langsamerer Konvergenz, aber mit größerer Stabilität. Als Overshooting bezeichnet man die Situation, indem der 
-  Parameter über das gesuchte Minimum hinausschießt und sich von diesem entfernt.
-
-  Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines der beiden Abbruchkriterien erfüllt ist (siehe dritter Punkt).
-  Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
-  Von dieser Position aus soll nun das "tiefste Tal" in der "Hügellandschaft" gesucht werden.\cite{GR10}
+  Eine kleinere Lernrate führt zu kleineren Aktualisierungen und möglicherweise langsamerer Konvergenz, aber mit größerer Stabilität. 
+Als Overshooting bezeichnet man die Situation, indem der Parameter über das gesuchte Minimum hinausschießt und sich von diesem entfernt.
+Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines der beiden Abbruchkriterien erfüllt ist (siehe dritter Punkt).
+  "Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
+  Von dieser Position aus soll nun das "tiefste Tal", in der "Hügellandschaft" gesucht werden."\cite{GR10}
   
   %TODO: **Graphische Veranschaulichung, in 3-dim Raum **
 \subsubsection{Mehrere Dimensionen}\label{subsec:gradientenverfahren:mehrere_dimensionen}
   %\input{}
   Das Gradientenverfahren beginnt mit einer zufälligen Gewichtskombination, die die Startposition auf der Kurve bzw. in einer n-dimensionalen "Gebirgslandschaft" makiert.
-  Von dieser Position aus soll nun das "tiefste Tal" in der "Hügellandschaft" gesucht werden.
+  Von dieser Position aus soll nun das "tiefste Tal"  in der "Hügellandschaft" gesucht werden.
   Im zweidimensionmalen Raum kann ein Abstieg notwendigerweise nur nach links oder rechts erfolgen, während man sich im dreidimensionalen Raum einmal um seine eigene Achse drehen muss,
   um den steilsten Abstieg bestimmen zu können.
 
