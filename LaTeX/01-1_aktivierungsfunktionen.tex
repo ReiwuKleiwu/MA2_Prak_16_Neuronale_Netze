@@ -1,23 +1,155 @@
-TODO
-\paragraph{Linear activation}
-TODO\\
-$\Phi(v) = v$
+Aktivierungsfunktionen ermöglichen den Neuronen nicht-lineare Outputs zu produzieren. Außerdem wird durch diese Funktionen entschieden, 
+welche Neuronen aktiviert werden und wie die Inputs gewichtet werden. Zur Notation von Aktivierungsfunktion nutzen wir $\Phi$.
+$$\hat{y} = \Phi(\overline{W} \cdot \overline{X})$$
+\paragraph{Lineare Aktivierung}
+Die simpelste Aktivierungsfunktion $\Phi(\cdot)$ ist die lineare Aktivierung. Sie bietet keine nicht linearität. Sie wird oft in Output Nodes
+verwendet, wenn das Ziel ein reeler Wert ist.
+$$\Phi(v) = v$$
 \paragraph{Nicht lineare Aktivierung}
-TODO
-\subparagraph{Sign activation}
-TODO\\
-$\Phi(v) = sign(v)$
-\subparagraph{Sigmoid activation}
-TODO\\
-$\Phi(v) = \frac{1}{1 + e^{-v}}$
-\subparagraph{Tanh activation}
-TODO\\
-$\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$\\
-$tanh(v) = 2 \cdot sigmoid(2v) - 1$
+In den frühen Tagen der Entwicklung von neuralen Netzen wurden sign, sigmoid und hyperbolic tangent Funktionen genutzt.
+\subparagraph{Sign Aktivierung}
+Die sign Funktion generiert nur binäre \{-1,+1\} Ausgaben. Aufgrund der Nichtstätigkeit der Funktion, können beim Trainieren keine Loss-Funktionen verwendet werden.
+$$\Phi(v) = \text{sign}(v)$$
+\subparagraph{Sigmoid Aktivierung}
+Die Sigmoid Funktion generiert Werte zwischen 0 und 1. Sie eignet sich deshalb für Rechnungen die als Wahrscheinlichkeiten interpetiert werden sollen.
+$$\Phi(v) = \frac{1}{1 + e^{-v}}$$
+\subparagraph{Tanh Aktivierung}
+Der Graph der Tanh Funktion hat eine ähneliche Form wie die der Sigmoid Funktion. Sie unterscheidet sich jedoch in der Skalierung, denn ihre Wertebereich liegt zwischen -1 und 1.
+$$\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$$
+Die Tanh Funktion lässt sich auch durch die Sigmoid Funktion darstellen.
+$$\text{tanh}(v) = 2 \cdot \text{sigmoid}(2v) - 1$$
 \paragraph{Piecewise lineare Aktivierung}
 \subparagraph{ReLU}
 TODO\\
-$\Phi(v) = max\{v,0\}$
-\subparagraph{hard tanh activations}
+$$\Phi(v) = \text{max}\{v,0\}$$
+\subparagraph{hard tanh Aktivierung}
 TODO\\
-$\Phi(v) = max\{min[v,1],-1\}$
+$$\Phi(v) = \text{max}\{\text{min}[v,1],-1\}$$
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          width=\textwidth,
+          height=5cm,
+          xmin=-2,
+          xmax=2,
+          ymin=-2,
+          ymax=2
+        ]
+          \addplot[black, domain=-2:2, samples=100] {x};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Linear}
+      \label{fig:plot1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+          \begin{axis}[
+            width=\textwidth,
+            height=5cm,
+            xmin=-2,
+            xmax=2,
+            ymin=-1.1,
+            ymax=1.1,
+            samples=100,
+            xtick={-2,-1,0,1,2},
+            ytick={-1,0,1},
+            clip=false
+          ]
+            % Plot the sign function
+            \addplot[black, thick, mark=none, domain=-2:0] {-1};
+            \addplot[black, thick, mark=none, domain=0:2] {1};
+            \draw (axis cs:0,-1) -- (axis cs:0,1);
+          \end{axis}
+        \end{tikzpicture}
+        \caption{Sign Function}
+        \label{fig:plot2}
+      \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          width=\textwidth,
+          height=5cm,
+          xmin=-15,
+          xmax=15,
+          ymin=-1,
+          ymax=1.1
+        ]
+          % Plot 3 data and settings
+          \addplot[black, domain=-15:15, samples=100] {1/(1 + exp(-x))};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Sigmoid}
+      \label{fig:plot3}
+    \end{subfigure}
+  
+    \medskip
+  
+    \begin{subfigure}{0.3\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          width=\textwidth,
+          height=5cm,
+          xmin=-6.5,
+          xmax=6.5,
+          ymin=-1.1,
+          ymax=1.1
+        ]
+          % Plot 4 data and settings
+          \addplot[black, domain=-6.5:6.5, samples=100] {(exp(2*x)-1)/(exp(2*x)+1)};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Tanh}
+      \label{fig:plot4}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+            width=\textwidth,
+            height=5cm,
+            xmin=-2,
+            xmax=2,
+            ymin=-1.1,
+            ymax=1.1
+        ]
+          % Plot 5 data and settings
+          \addplot[black, domain=-2:2, samples=100] {max(x,0)};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{ReLU}
+      \label{fig:plot5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+            width=\textwidth,
+            height=5cm,
+            xmin=-2,
+            xmax=2,
+            ymin=-1.1,
+            ymax=1.1
+        ]
+          % Plot 6 data and settings
+          \addplot[black, domain=-2:2, samples=100] {max(min(x,1),-1)};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Hard Tanh}
+      \label{fig:plot6}
+    \end{subfigure}
+  
+    \caption{Aktivierungsfunktionen}
+    \label{fig:grid}
+  \end{figure}
+  
