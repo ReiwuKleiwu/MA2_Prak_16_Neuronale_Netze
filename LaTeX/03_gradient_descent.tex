@@ -320,8 +320,41 @@ Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines
   sichergestellt, dass das Verfahren das 'tiefte Tal' -d.h. das globale Minimum - findet.
 
 \subsubsection{Wie löst man dieses Problem?}\label{subsec:gradientenverfahren:fehlerquellen_problem_loesen}
-  %\input{}
-  Gewichtsanpassung davor einbeziehen
-  viele verschiedene Startpunkte testen?
+Es stehen zahlreiche Möglichkeiten zue Effizienzsteigerung des Gradientabstiegsverfahren zu Verfügung das Gradientenverfahren um weitere Techniken oder Variationen zu erweitern.
+\begin{itemize}
+  \item Initialisierung der Gewichte verändern:\\
+  Man kann versuchen. die Initialisierung der Gewichte zu verändern, um den Lernerfolg zu verbessern. Dabei ist zu beachten, das sowohl die Art der Initialisierung für das Auffinden eine lokalen bzw. globalen 
+  Minimums von Bedeutung ist, als auch der Startpunkt des Gradientabstiegsverfahren, welcher einen zentralen Einfluss darauf hat, welche Werte die Gewichte im Verlauf des Verfahrens annehmen und ob sich ein Lokales
+  oder globales Mimimum findet.\\
+  Die Initialisierung aller Gewichte auf denselben Zahlenwert führt dazu, das die Gewichte das die Gewichte in der Traininngsphase gleich verändert werden. Um diesem Problem zu begegnen wird die Initialisierung
+  der Gewichte mit kleinen, um Null herum streuenden Zufallsgewichten vorgenommen(symmetry breaking). häufig kommt das sogenannte "Multi-Start-Verfahren" zum Einsatz, bei dem die Berechnungen mit verschiedenen
+  Startpunkten wiederholt werden. 
+\end{itemize}
+\begin{itemize}
+  \item Lernparameter verändern:\\
+  Neben Neu-Initialisierung kann der Lernparameter erhöht werden. Das erhöhen des Lernparameters bewirkt größere Sprünge zum Mimimum. Vorteil dabei ist, das flache Plateaus schneller durchlaufen
+  werden. Beim reduzieren des Lernparameters ergibt sich der Vorteil, das das globale Minimum nichtmehr so leicht übersprungen werden kann. Ein Nachteil dabei wäre, das das trainieren eine inakzeptable
+  lange Traininngszeiut erreicht.\\
+  "Eine weitere Möglichkeit besteht in der stufenweisen Veränderung der Lernrate im Verlauf der Traininngsphase. Genauer gesagt wie der Lernparameter im laufe des Training forlaufend reduziert wird"\cite[Seite 46]{GR10}.\\
+\end{itemize}
+\begin{itemize}
+  \item Momentum-Term inzufügen:\\
+  "Der Momentum-Term addiert zum aktuellen Gradienten den vorangegangenen Gradienten. Dieser "vorangegangene" Gradient wird mit dem Momentum-Parameter $\alpha$ multipliziert(Macho,2002) um zu gewährleisten, das dieser nicht
+  in der gleichen Stärke wie der aktuelle Gradient die neue Gewichtsveränderungen beinflusst. Stellt man sich das Gradientabstiegsverfahren als ein BHall vor, der eine Hügellandschaft herunterrollt
+  bzw. herunterspringt, dann erfolgen die Richtungsveränderungen diesen Ball "Schwung" und kann somit Beispielweise ein flaches Plateau besser überwinden." Folgende Vortile sind mit dem Momentum-Term verknüpft:\\
+  \begin{itemize}
+  \item Lokale Minima werden eher übersprungen
+  \item Flache Plateaus werden aufgrund der Beschleunigung schneller durchlaufen.
+  \item Jedoch birgt sein Einsatz auch die erhöhte Gefahr des Überspringen des globalen Minimums.
+  \end{itemize}
+\end{itemize}
+\begin{itemize}
+  \item  Delta-Bar-Delta-Regel:\\
+  Bei dieser Regel wird ein Vergleich der partiellen Ableitung aus allen aufeinanderfolgenden Durchgänge vorgenommen. Dabei werden auch weit zurückliegende partielle Ableitungen aufgrund eines Gewichtsfaktors 
+  berücksichtigt. In Abhängigkeit des Ergebnisses des Vergleichs wird die aktuelle Schrittweite erhöht oder reduziert.\\
+\end{itemize}
+Trotz der Zahlreichen Lösungsansätze zur Problemstellung, die mit der Kenntnis lediglich der lokalen Umgebung der n-dimensionalen "Gebirgslandschaft" einhergehen, ist keine der Lösungen bei sämtlichen Problemen 
+von Vorteil. Stattdessen ist oft simples ausprobieren notwendig, um die geeigneten Ansätze und Parameter auszuwählen\cite[Seite 48]{GR10}.
+
 
 
