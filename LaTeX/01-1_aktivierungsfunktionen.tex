@@ -25,10 +25,10 @@ und der Gradient größer ist.
 Historisch wurden die Sigmoid und Tanh Funktion zur Einführung von Nichtliniearität genutzt. Heutzutage sind piecewise linear activation Funktionen (Stückweise Linear) beliebter, weil diese das Trainieren 
 von mehrschichtigen neuronalen Netzen einfacher machen.
 \subparagraph{ReLU}
-TODO\\
+Das Ergebnis der ReLU (Rectified Linear Unit) Funktion ist 0, wenn die gewichtete Summe der Inputs $v$ kleiner 0 ist, sonst ist das Ergbenis das unveränderte $v$.
 $$\Phi(v) = \text{max}\{v,0\}$$
 \subparagraph{hard tanh Aktivierung}
-TODO\\
+Das Ergbenis der hard tanh Funktion ist -1 für $v < 1$ oder 1 für $v > 1$. Sonst ist das Ergbenis das unveränderte $v$. 
 $$\Phi(v) = \text{max}\{\text{min}[v,1],-1\}$$
 
 \begin{figure}[htbp]
