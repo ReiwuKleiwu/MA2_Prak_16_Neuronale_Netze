@@ -18,7 +18,12 @@ Der Graph der Tanh Funktion hat eine ähneliche Form wie die der Sigmoid Funktio
 $$\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$$
 Die Tanh Funktion lässt sich auch durch die Sigmoid Funktion darstellen.
 $$\text{tanh}(v) = 2 \cdot \text{sigmoid}(2v) - 1$$
+Wenn die Ausgabe der Berechnung postitiv sowie negativ sein kann, ist die tanh Funktion der sigmoid Funktion vorzuziehen. Außerdem ist es einfacher zu trainieren, weil die Funktion Mittelwertzentriert
+und der Gradient größer ist.
+
 \paragraph{Piecewise lineare Aktivierung}
+Historisch wurden die Sigmoid und Tanh Funktion zur Einführung von Nichtliniearität genutzt. Heutzutage sind piecewise linear activation Funktionen (Stückweise Linear) beliebter, weil diese das Trainieren 
+von mehrschichtigen neuronalen Netzen einfacher machen.
 \subparagraph{ReLU}
 TODO\\
 $$\Phi(v) = \text{max}\{v,0\}$$
