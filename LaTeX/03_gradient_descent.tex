@@ -51,7 +51,7 @@ Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne G
   wenn man in die Richtung des Gradienten geht, man die Funktion so schnell wie möglich erhöht, und wenn man in die entgegengesetzte Richtung geht,
   also in Richtung des negativen Gradienten, man die Funktion so schnell wie möglich verringert. Dies ist ein entscheidender Aspekt bei dem Gradientenverfahren.
   \bigbreak\noindent
-  Im folgenden wird der Gradient einer Funktion an einem simplen Beispiel berechnet: 
+  Im Folgenden wird der Gradient einer Funktion an einem simplen Beispiel berechnet: 
   \bigbreak\noindent
   Sei $f(x, y) = x^2 + y^2$, nun ist der Gradient für den Punkt $x = 5, y = 3$ gesucht. Es gilt
   \begin{align*}
@@ -197,7 +197,7 @@ Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne G
   würde man schlussendlich die Werte $x = 0$ und $y = 0$ rausbekommen. Dort liegt unser Minimum.
   \bigbreak\noindent
   Die Auswahl des Startpunktes $x_{0}$ sowie die Wahl der Lernrate $\eta$ spielen eine große Rolle beim Erfolg des
-  Gradientenverfahrens, hierauf wird jedoch nicht weiter eingegangen.
+  Gradientenverfahrens, hierauf wird hier jedoch nicht weiter eingegangen.
 \iffalse
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
 'Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
@@ -305,57 +305,68 @@ Der vierte und der fünfte Punkt werden solange wiederholt, bis mindestens eines
   %\input{}
   Auf der Suche nach dem globalen Minimum kann der Algorithmus in einem lokalen Minimum enden und somit das Erreichen des globalen Minimums verhindert werden.
   Ein lokales Minimum tritt auf, wenn das Netzwerk an einem Punkt des Fehlergradienten auf eine niedrigere Fehlerfunktionsebene trifft, aber in der Nähe dieses Punktes ein anderer Punkt mit noch niedrigerem Fehler existiert (siehe Abb. 4).
-  Da neurale Netze häufig große Anzahlen von Parametern haben, kann die Suche nach dem globalen Minimum eine schwierige Aufgabe sein.\cite{HS97}.
+  Da neurale Netze häufig große Anzahlen von Parametern haben, kann die Suche nach dem globalen Minimum eine schwierige Aufgabe sein \cite{HS97}.
+  Oft wird in dieser Situation auch ein bergiges Gelände, in welchem eine Person, welche nur mit dem Strahl einer Taschenlampe ausgerüstet ist, zur Erklärung herangezogen \cite{TR17}.
+  Diese Person kennt die Landschaft nicht, möchte aber den Fuß des Berges erreichen. Mit der Taschenlampe würde die Person den Boden ausleuchten, um der steilsten Neigung nach unten zu folgen.
+  Sollte der Abstieg nicht weiter möglich sein, kann es sein, dass die einen Tiefpunkt erreicht hat, dieser aber nicht der tiefste Punkt der gesamten Landschaft ist.
   \\
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth]{Sources/03-3.3.2_3-dimensionaler_abstieg.png}
-    \caption{Lokales und Global Minimum}
+    \caption{Lokales und globales Minimum}
     \label{subsec:lokale-globale-minima}
 \end{figure}
 
 \subsubsection{Befindet man sich wirklich im globalen Minimum?}\label{subsec:gradientenverfahren:fehlerquellen_globalen_minimum}
   %\input{}
-  Gradientenabstiegs- und Suchverfahren finden in der Regel nur lokale Minima, abhängig vom gewählten Startpunkt.
-  Durch die fehlende Kenntnis der gesamten n-dimensionalen 'Hügellandschaft' die sich hinter einem 'Nebelschleier' verbirgt  ist de facto nie, ausgenommen der gesamte Fehlerterm liegt bei Null (In diesem Fall ist gewährleistet, dass es sich um ein globales Minimum handelt), sichergestellt,
-  dass das Verfahren das 'tiefste Tal' - d.h. das globale Minimum - findet.
+  Das Gradientenabstiegsverfahren finden in der Regel nur lokale Minima, abhängig vom gewählten Startpunkt \cite{HS97}.
+  Durch die fehlende Kenntnis der gesamten (komplexen) Funktion ist es nicht sichergestellt, dass das Verfahren das globale Minimum (bzw. das tiefte Tal im Beispiel \ref*{subsec:gradientenverfahren:fehlerquellen_lokalen_minimum}) findet.
 
 \subsubsection{Wie löst man dieses Problem?}\label{subsec:gradientenverfahren:fehlerquellen_problem_loesen}
-Es stehen zahlreiche Möglichkeiten zue Effizienzsteigerung des Gradientabstiegsverfahren zu Verfügung das Gradientenverfahren um weitere Techniken oder Variationen zu erweitern.
+Es stehen eine Liste an Änderungen am Gradientabstiegsverfahren zur Verfügung.
 \begin{itemize}
   \item Initialisierung der Gewichte verändern:\\
-  Man kann versuchen die Initialisierung der Gewichte zu verändern um den Lernerfolg zu verbessern. Dabei ist zu beachten, das sowohl die Art der Initialisierung für das Auffinden eine lokalen bzw. globalen 
-  Minimums von Bedeutung ist, als auch der Startpunkt des Gradientabstiegsverfahren, welcher einen zentralen Einfluss darauf hat, welche Werte die Gewichte im Verlauf des Verfahrens annehmen und ob sich ein Lokales
-  oder globales Mimimum findet.\\
-  Die Initialisierung aller Gewichte auf denselben Zahlenwert führt dazu, das die Gewichte das die Gewichte in der Traininngsphase gleich verändert werden. Um diesem Problem zu begegnen wird die Initialisierung
-  der Gewichte mit kleinen, um Null herum streuenden Zufallsgewichten vorgenommen(symmetry breaking). Häufig kommt das sogenannte 'Multi-Start-Verfahren' zum Einsatz, bei dem die Berechnungen mit verschiedenen
-  Startpunkten wiederholt werden. 
+  Man kann versuchen, die Initialisierung der Gewichte zu verändern, um den Lernerfolg zu verbessern. Dabei ist zu beachten, dass sowohl die Werte der Initialisierung für das Auffinden eines Minimums von Bedeutung ist, 
+  als auch der Startpunkt $x^0\epsilon\mathbb{R}^n$ (\ref*{subsec:gradientenverfahren:wie_funktioniert}) des Gradientabstiegsverfahren, da dieser einen zentralen Einfluss darauf hat, welche Werte die Gewichte im Verlauf des Verfahrens annehmen. \\
+
+  Zu beachten ist auch, dass die Initialisierung aller Gewichte auf denselben Zahlenwert dazu führt, dass die Gewichte in der Traininngsphase gleich verändert werden. Um diesem Problem entgegenzuwirken, wird die Initialisierung
+  der Gewichte mit kleinen, um 0 herum streuenden Zufallsgewichten vorgenommen(symmetry breaking). \\
+  Häufig kommt das sogenannte 'Multi-Start-Verfahren' zum Einsatz, bei dem die Berechnungen mit verschiedenen Startpunkten wiederholt werden. 
 \end{itemize}
 \begin{itemize}
   \item Lernparameter verändern:\\
-  Neben Neu-Initialisierung kann der Lernparameter erhöht werden. Das erhöhen des Lernparameters bewirkt größere Sprünge zum Mimimum. Vorteil dabei ist, das flache Plateaus schneller durchlaufen
-  werden. Beim reduzieren des Lernparameters ergibt sich der Vorteil, das das globale Minimum nichtmehr so leicht übersprungen werden kann. Ein Nachteil dabei wäre, das das trainieren eine inakzeptable
-  lange Traininngszeiut erreicht.\\
-  'Eine weitere Möglichkeit besteht in der stufenweisen Veränderung der Lernrate im Verlauf der Traininngsphase. Genauer gesagt wie der Lernparameter im laufe des Training forlaufend reduziert wird'\cite[Seite 46]{GR10}.\\
+  Neben Neu-Initialisierung der Gewichte kann der Lernparameter $\eta$ (\ref*{subsec:gradientenverfahren:wie_funktioniert}) verändert werden. Das Erhöhen des Lernparameters hat größere Sprünge zum Minimum zur Folge. Vorteil dabei ist, dass flache Plateaus schneller durchlaufen
+  werden. Beim Minimieren des Lernparameters ergibt sich der Vorteil, dass das globale Minimum nicht mehr so leicht übersprungen werden kann. Dabei wäre jedoch ein Nachteil, dass das Gradientenverfahren eine deutlich längere Laufzeit bekommt.\\
+  Eine oft angewandte Kombination ist daher, eine stufenweise Veränderung der Lernrate im Verlauf des Gradientenabstieges \cite[Seite 46]{GR10}.
 \end{itemize}
 \begin{itemize}
-  \item Momentum-Term inzufügen:\\
-  'Der Momentum-Term addiert zum aktuellen Gradienten den vorangegangenen Gradienten. Dieser 'vorangegangene' Gradient wird mit dem Momentum-Parameter $\alpha$ multipliziert(Macho,2002) um zu gewährleisten, das dieser nicht
-  in der gleichen Stärke wie der aktuelle Gradient die neue Gewichtsveränderungen beinflusst. Stellt man sich das Gradientabstiegsverfahren als ein BHall vor, der eine Hügellandschaft herunterrollt
-  bzw. herunterspringt, dann erfolgen die Richtungsveränderungen diesen Ball 'Schwung' und kann somit Beispielweise ein flaches Plateau besser überwinden.'Folgende Vortile sind mit dem Momentum-Term verknüpft:\\
+  \item Impuls-Term hinzufügen:\\
+  Der Impuls-Term addiert zum aktuellen Gradienten den vorangegangenen Gradienten. Dadurch wird zusätzlich zur Berechnung ein Anteil $\alpha$ des vorherigen Gradient berücksichtigt.
+  Dadurch kann das Verfahren schneller gegen das Minimum konvergieren und hilft, die Wahrscheinlichkeit von Schritten in die falsche Richtung zu reduzieren.
+
+  Mit der Funktion aus \ref*{subsec:gradientenverfahren:wie_funktioniert} wäre die angewandte Änderung des Verfahrens dann:
+  \begin{align*}
+    \begin{bmatrix}
+          x_{1}\\
+          x_{2}\\
+          \vdots \\
+          x_{n}
+         \end{bmatrix}_{Neu} = \alpha * \begin{bmatrix}
+          x_{1}\\
+          x_{2}\\
+          \vdots \\
+          x_{n}
+         \end{bmatrix}_{Alt} - \eta \nabla f(x_{0})
+  \end{align*}
+  \noindent
+
+  Folgende Vortile sind mit dem Impuls-Term verknüpft:
   \begin{itemize}
   \item Lokale Minima werden eher übersprungen
   \item Flache Plateaus werden aufgrund der Beschleunigung schneller durchlaufen.
-  \item Jedoch birgt sein Einsatz auch die erhöhte Gefahr des Überspringen des globalen Minimums.
   \end{itemize}
+  Jedoch birgt der Einsatz davon auch die erhöhte Gefahr des Überspringen des globalen Minimums \cite{HS97}.
 \end{itemize}
-\begin{itemize}
-  \item  Delta-Bar-Delta-Regel:\\
-  Bei dieser Regel wird ein Vergleich der partiellen Ableitung aus allen aufeinanderfolgenden Durchgänge vorgenommen. Dabei werden auch weit zurückliegende partielle Ableitungen aufgrund eines Gewichtsfaktors 
-  berücksichtigt. In Abhängigkeit des Ergebnisses des Vergleichs wird die aktuelle Schrittweite erhöht oder reduziert.\\
-\end{itemize}
-Trotz der Zahlreichen Lösungsansätze zur Problemstellung, die mit der Kenntnis lediglich der lokalen Umgebung der n-dimensionalen 'Gebirgslandschaft' einhergehen, ist keine der Lösungen bei sämtlichen Problemen 
-von Vorteil. Stattdessen ist oft simples ausprobieren notwendig um die geeigneten Ansätze und Parameter auszuwählen\cite[Seite 48]{GR10}.
-
-
-
+\noindent
+Trotz der zahlreichen Lösungsansätze zur Problemstellung, die mit der Kenntnis lediglich der lokalen Umgebung der n-dimensionalen 'Gebirgslandschaft' einhergehen, ist keine der Lösungen bei sämtlichen Problemen 
+von Vorteil. Stattdessen ist oft simples ausprobieren notwendig, um die geeigneten Ansätze und Parameter auszuwählen. Ebenso können sich geeignete Methoden von Modell zu Modell unterscheiden \cite[Seite 48]{GR10}.
