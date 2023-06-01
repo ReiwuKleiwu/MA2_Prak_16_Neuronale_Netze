@@ -6,15 +6,34 @@
 \begin{tcolorbox}[title={Inhalt}]
 Die Backpropagation umfasst folgende Elemente:
 \begin{itemize}
+\item Was ist eine geeignete Verlustfunktion?
 \item Wie lernen Neuronale Netze?
-\item Grundidee Backpropagation
-\item Fehlerfunktion finden
+\item Grundidee der Backpropagation
 \item Gewichtsanpassung
 \begin{quotation}
 Eine Einleitung muss auch durch die Arbeit führen. Sie muss dem Leser helfen, sich in der Arbeit und ihrer Struktur zu Recht zu finden. Für jedes Kapitel sollte eine ganz kurze Inhaltsangabe gemacht werden und ggf. motiviert werden, warum es geschrieben wurde. Oft denkt sich ein Autor etwas bei der Struktur seiner Arbeit, auch solche Beweggründe sind dem Leser zu erklären\footnote{\cite{BBoJ}, S. 6}:. 
 \end{quotation}
 \end{itemize}
 \end{tcolorbox}
+
+\subsection{Was ist eine geeignete Verlustfunktion?}\label{subsec:backpropagation:verlustfunktion}
+Die Verlustfunktion wird genutzt um den Fehler eines neuronalen Netzes zu berechnen. Dieser Fehler gibt an, 
+wie sehr die wirklichen Ausgabewerte des neuronalen Netzes nach Eingabe eines Trainingsdatensatzes von den gewollten Ausgabewerten abweichen. 
+\bigbreak\noindent
+Eine weitverbreitete Verlustfunktion ist der sogenannte Mean Squared Error (MSE), bei dem der Durchschnitt der quadrierten Fehler berechnet wird.
+Bei Anwendung auf neuronale Netze lässt sich diese Funktion wie folgt ausdrücken:
+
+\begin{eqnarray}  
+  C(w,b) = \frac{1}{2n} \sum_x \| y(x) - a\|^2.
+\end{eqnarray}
+
+\noindent
+In dieser Gleichung steht $w$ für die Gesamtheit aller Gewichte im neuronalen Netz, während $b$ alle Biases repräsentiert.
+$x$ bezeichnet die Anzahl der Trainingsdatensätze und $y(x)$ ist der Vektor der Sollwerte nach einem Trainingsbeispiel.
+Schließlich ist $a$ der Vektor der tatsächlichen Ausgabewerte. Es wird der durchschnittliche Fehler über \textbf{alle} Trainingsbeispiele berechnet. 
+Es gibt Methoden, bei denen der Fehler nur für ausgewählte Teilgruppen (sog. Batches) von Trainingsbeispielen berechnet wird (Batch-Methode). 
+Diese Vorgehensweise kann die Laufzeit des Backpropagation-Algorithmus verbessern, wird in diesem Text jedoch nicht weiter vertieft. 
+% TODO: Quelle angeben: http://neuralnetworksanddeeplearning.com/chap1.html#learning_with_gradient_descent
 
 \subsection{Wie lernen Neuronale Netze?}\label{subsec:backpropagation:lernen_nn}
 
