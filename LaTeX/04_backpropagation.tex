@@ -29,13 +29,22 @@ Bei Anwendung auf neuronale Netze lässt sich diese Funktion wie folgt ausdrück
 
 \noindent
 In dieser Gleichung steht $w$ für die Gesamtheit aller Gewichte im neuronalen Netz, während $b$ alle Biases repräsentiert.
-$x$ bezeichnet die Anzahl der Trainingsdatensätze und $y(x)$ ist der Vektor der Sollwerte nach einem Trainingsbeispiel.
-Schließlich ist $a$ der Vektor der tatsächlichen Ausgabewerte. Es wird der durchschnittliche Fehler über \textbf{alle} Trainingsbeispiele berechnet. 
+$x$ bezeichnet die Anzahl der Trainingsdatensätze und $y(x)$ ist der Vektor der Soll-Werte nach einem Trainingsbeispiel.
+Schließlich ist $a$ der Vektor der tatsächlichen Ausgabewerte. 
+\bigbreak\noindent
+Wichtige Eigenschaften der MSE Verlustfunktion sind zum einen, dass sie niemals negativ wird, da jeder Term der Funktion positiv ist.
+Außerdem sieht man recht einfach, dass $C(w, b) \approx 0$ gilt, wenn die die Soll-Werte ungefähr gleich den tatsächlichen Ausgabewerten sind.
+\bigbreak\noindent
+Es wird der durchschnittliche Fehler über \textbf{alle} Trainingsbeispiele berechnet. 
 Es gibt Methoden, bei denen der Fehler nur für ausgewählte Teilgruppen (sog. Batches) von Trainingsbeispielen berechnet wird (Batch-Methode). 
-Diese Vorgehensweise kann die Laufzeit des Backpropagation-Algorithmus verbessern, wird in diesem Text jedoch nicht weiter vertieft. 
+Diese Vorgehensweise kann die Laufzeit des Backpropagation-Algorithmus verbessern, wird in diesem Text jedoch nicht weiter vertieft.
 % TODO: Quelle angeben: http://neuralnetworksanddeeplearning.com/chap1.html#learning_with_gradient_descent
 
 \subsection{Wie lernen Neuronale Netze?}\label{subsec:backpropagation:lernen_nn}
+Da wir nun eine Verlustfunktion kennen, welche den Fehler eines neuronalen Netzes bestimmt, kann man eben jene
+Verlustfunktion nutzen um das neuronale Netz lernen zu lassen. Der Ausgabewert der Verlustfunktion hängt sowohl von allen Weights $w$ 
+als auch von allen Biases $b$ des neuronalen Netzes ab. Nun sucht man die konkreten Werte für die Weights und Biases, damit die 
+Verlustfunktion so klein wie möglich wird. Dies tut man mit dem bereits oben beschriebenen Gradientenverfahren.
 
 \subsection{Grundidee Backpropagation}\label{subsec:backpropagation:grundiee}
 \subsubsection{Fehlerrückführung}\label{subsec:backpropagation:fehlerrueckfuehrung}
