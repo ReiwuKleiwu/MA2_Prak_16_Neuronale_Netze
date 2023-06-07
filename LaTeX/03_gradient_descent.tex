@@ -319,34 +319,6 @@ Es stehen eine Liste an Änderungen am Gradientabstiegsverfahren zur Verfügung.
   werden. Beim Minimieren des Lernparameters ergibt sich der Vorteil, dass das globale Minimum nicht mehr so leicht übersprungen werden kann. Dabei wäre jedoch ein Nachteil, dass das Gradientenverfahren eine deutlich längere Laufzeit bekommt.\\
   Eine oft angewandte Kombination ist daher, eine stufenweise Veränderung der Lernrate im Verlauf des Gradientenabstieges \cite[Seite 46]{GR10}.
 \end{itemize}
-\begin{itemize}
-  \item Impuls-Term hinzufügen:\\
-  Der Impuls-Term multipliziert zum aktuellen Gradienten den vorangegangenen Gradienten. Dadurch wird zusätzlich zur Berechnung ein Anteil $\alpha$ des vorherigen Gradient berücksichtigt.
-  Dadurch kann das Verfahren schneller gegen das Minimum konvergieren und hilft, die Wahrscheinlichkeit von Schritten in die falsche Richtung zu reduzieren.
-
-  Mit der Funktion aus \ref*{subsec:gradientenverfahren:wie_funktioniert} wäre die angewandte Änderung des Verfahrens dann:
-  \begin{align*}
-    \begin{bmatrix}
-          x_{1}\\
-          x_{2}\\
-          \vdots \\
-          x_{n}
-         \end{bmatrix}_{Neu} = \alpha * \begin{bmatrix}
-          x_{1}\\
-          x_{2}\\
-          \vdots \\
-          x_{n}
-         \end{bmatrix}_{Alt} - \eta \nabla f(x_{0})
-  \end{align*}
-  \noindent
-
-  Folgende Vorteile sind mit dem Impuls-Term verknüpft:
-  \begin{itemize}
-  \item Lokale Minima werden eher übersprungen
-  \item Flache Plateaus werden aufgrund der Beschleunigung schneller durchlaufen.
-  \end{itemize}
-  Jedoch birgt der Einsatz davon auch die erhöhte Gefahr des Überspringen des globalen Minimums \cite{HS97}.
-\end{itemize}
 \noindent
 Trotz der zahlreichen Lösungsmöglichkeiten, ist keine der Lösungen bei sämtlichen Problemen von Vorteil. 
 Stattdessen ist oft simples ausprobieren notwendig, um die geeigneten Ansätze und Parameter auszuwählen. 
