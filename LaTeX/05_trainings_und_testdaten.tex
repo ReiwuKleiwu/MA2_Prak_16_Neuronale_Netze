@@ -18,18 +18,18 @@ Diese Frage sollte bei der Erklärung der Verwendungszwecke der jeweiligen Daten
 \subsection{Trainingsdaten}
 Ein Trainingsdatensatz ist ein Datensatz mit Beispielen. Konkret bedeutet das, dass hier eine Zuordnung zwischen Input -> Output bereits gegeben ist.
 Diese Daten werden genutzt, um die Gewichte (siehe \ref*{subsec:neuronen:verknuepfung_neuronen:Weights}) des neuronalen Netzes anzupassen \cite[Seite 2ff]{CA18}.
-In der Literatur wird dieser Teil oft mit 70 bis 80 Prozent von der gesamten Datenmenge bemessen.
+Oft wird dieser Teildatensatz mit 70 bis 80 Prozent von der gesamten Datenmenge bemessen.
 
 \subsection{Validierungsdate}
 Der Validierungsdatensatz dient dazu, die Leistung des Modells während des Trainings zu bewerten und die Parameter (z.B. Lernrate oder Gewichte) zu optimieren. 
 Dadurch wird das Modell verbessert \cite[Seite 20]{CA18}.
-In der Literatur wird dieser Teil oft mit 10 Prozent von der gesamten Datenmenge bemessen.
+Oft wird dieser Teildatensatz mit 10 Prozent von der gesamten Datenmenge bemessen.
 
 \subsection{Testdaten}
 Mithilfe des Testdatensatzes wird die Qualität des neuronalen Netzes nach dem Training überprüft. Wichtig ist dafür, dass dieser Datensatz zuvor nicht zum Lernen verwendet wurde, 
 damit diese das Ergebnis nicht verfälschen.
 So kann festgestellt werden, wie das Modell auf Daten reagiert, welche nicht zuvor trainiert wurden \cite[Seite 80f]{CA18}.
-In der Literatur wird dieser Teil oft mit 10 bis 15 Prozent von der gesamten Datenmenge bemessen.
+Oft wird dieser Teildatensatz mit 10 bis 15 Prozent von der gesamten Datenmenge bemessen.
 
 \noindent
 Insgesamt sollte nun klar sein, warum die Datensätze aufgeteilt werden sollten. 
