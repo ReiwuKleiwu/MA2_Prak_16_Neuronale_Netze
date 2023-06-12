@@ -1,8 +1,41 @@
 \newpage
 \thispagestyle{empty}
-\section{Trainieren und Testen von Neuralen Netzen}\label{sec:trainingsdaten}   
-todo
+\section{Trainieren und Testen von Neuralen Netzen}\label{sec:trainierentesten}   
+\begin{tcolorbox}[title={Inhalte von \textit{Trainings- und Testdaten}}]
+  \begin{quotation}\noindent
+    Im letzten Kapitel wird auf die Datensätze eingegangen, welche genutzt werden, um ein Modell mit Daten zu füllen und zu testen.
+  \end{quotation}
+  \begin{itemize}
+    \item Trainings- und Testdaten
+  \end{itemize}
+\end{tcolorbox}
+
+\subsection{Trainings- und Testdaten}\label{subsecsec:trainierentesten:daten}   
+Zum Trainieren eines Modells wird ein Datensatz benötigt. Dieser Datensatz wird in der Regel in mindestens drei verschiedene Datensätze unterteilt: Training-, Validierung- und Testdaten.
+Hier kann die Frage aufkommen, warum diese Unterteilung gemacht wird und nicht der vollständige Datensatz zum Lernen verwendet wird. 
+Diese Frage sollte bei der Erklärung der Verwendungszwecke der jeweiligen Daten beantwortet werden.
+
 \subsection{Trainingsdaten}
-todo
+Ein Trainingsdatensatz ist ein Datensatz mit Beispielen. Konkret bedeutet das, dass hier eine Zuordnung zwischen Input -> Output bereits gegeben ist.
+Diese Daten werden genutzt, um die Gewichte (siehe \ref*{subsec:neuronen:verknuepfung_neuronen:Weights}) des neuronalen Netzes anzupassen \cite[Seite 2ff]{CA18}.
+Oft wird dieser Teildatensatz mit 70 bis 80 Prozent von der gesamten Datenmenge bemessen.
+
+\subsection{Validierungsdate}
+Der Validierungsdatensatz dient dazu, die Leistung des Modells während des Trainings zu bewerten und die Parameter (z.B. Lernrate oder Gewichte) zu optimieren. 
+Dadurch wird das Modell verbessert \cite[Seite 20]{CA18}.
+Oft wird dieser Teildatensatz mit 10 Prozent von der gesamten Datenmenge bemessen.
+
 \subsection{Testdaten}
-todo
+Mithilfe des Testdatensatzes wird die Qualität des neuronalen Netzes nach dem Training überprüft. Wichtig ist dafür, dass dieser Datensatz zuvor nicht zum Lernen verwendet wurde, 
+damit diese das Ergebnis nicht verfälschen.
+So kann festgestellt werden, wie das Modell auf Daten reagiert, welche nicht zuvor trainiert wurden \cite[Seite 80f]{CA18}.
+Oft wird dieser Teildatensatz mit 10 bis 15 Prozent von der gesamten Datenmenge bemessen.
+
+\noindent
+Insgesamt sollte nun klar sein, warum die Datensätze aufgeteilt werden sollten. 
+Wichtig anzumerken ist noch, dass die Verteilung der Datensätze variiert und so gewählt werden sollte, dass das Modell ausreichend gut trainiert und validiert wird und anschließend gründlich getestet wird.
+
+\subsection{Problem: Overfitting}
+Overfitting tritt auf, wenn das neuronale Netz zu stark an die Trainingsdaten angepasst ist und falsch auf neue, unbekannte Daten reagiert. 
+Bei einer nur geringen Anzahl an Trainingsdaten werden nicht genug Anpassungen durchgeführt, sodass ein Lernen nach Mustern möglich wird. Die Folge davon ist, dass die Trainingsdaten auswendig gelernt werden.
+Dadurch hat das neuronale Netz eine sehr hohe Genauigkeit bei den Trainingsdaten, jedoch eine sehr geringe bei dem Validierungsdatensatz \cite[Seite 25]{CA18}. 
