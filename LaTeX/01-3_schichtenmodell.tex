@@ -1,15 +1,15 @@
 \subsubsection{Schichtenmodell}\label{subsec:neuronen:schichtenmodell}
+Neuronale Netze sind in einer Struktur aus mehreren aufeinanderfolgenden Schichten aufgebaut.
 Man unterscheidet grundlegend zwischen drei verschiedenen Arten von Schichten, der Eingabeschicht (''input layer''), den versteckten Schichten (''hidden layer'') und der Ausgabeschicht (''output layer'').
 Die einzige Aufgabe der Eingabeschicht ist es, die Daten der Eingabevariablen darzustellen und an die folgenden Neuronen weiterzugeben, was auch bedeutet, dass diese Neuronen keine Aktivierungsfunktionen verwenden.
-Die Werte der Neuronen, die die Ausgabeschicht bilden, sind auch die Werte, die als Ausgabe des Netzes gelten.
 Die Berechnungen, die in den Hidden-Layers stattfinden sind nicht nach außen hin sichtbar, lediglich die Ausgabe des Output-Layers gelangt nach außen.
 
 \bigbreak\noindent
-Neuronale Netze sind in einer Struktur aus mehreren aufeinanderfolgenden Schichten aufgebaut.
 Die einfachste Variante eines neuronalen Netzes ist das Single-Layer-Perceptron. Dieses besteht lediglich aus einem Input-Layer, der die Eingabedaten in das Netz einspeist und einem Output-Layer, der die Ergebnisse aus dem Netz ausgibt.
 Es ist also nur eine Schicht an Verbindungen zwischen der Ein- und Ausgabeschicht vorhanden.
-Diese Art von Netzen ist aber verhältnismäßig wenig leistungsfähig und kann keine komplexen Zusammenhänge verarbeiten und nur Werte von 0 und 1 ausgeben.
-Es existieren jedoch auch neuronale Netze mit mehreren Schichten, wie zum Beispiel die Multilayer-Perceptrons. Dabei handelt es sich um Netze, die über mehrere Hidden-Layer verfügen und bei dem alle Schichten linear ohne Zyklen aufeinanderfolgen (''feed-forward'') und bei dem alle Neuronen einer Schicht mit allen Neuronen der folgenden Schicht verbunden sind.
+Diese Art von Netzen ist aber verhältnismäßig wenig leistungsfähig und kann keine komplexen Zusammenhänge verarbeiten und nur Werte zwischen 0 und 1 ausgeben.
+Es existieren jedoch auch neuronale Netze mit mehreren Schichten, wie zum Beispiel die Multilayer-Perceptrons. Dabei handelt es sich um Netze, die über mindestens einen Hidden-Layer verfügen.
+Multilayer-Perceptrons und feed-forward neuronale Netze im Allgemeinen sind außerdem wie ein azyklischer Graph aufgebaut.
 Solche Netze sind fähig auch komplexere Muster zu erkennen.
 Durch eine Erhöhung der Anzahl an Schichten, kann die Leistungsfähigkeit des Netzes weiter erhöht werden, jedoch steigt auch die benötigte Rechenleistung an.
 Wenn ein neuronales Netz über zahlreiche Schichten verfügt, dann wird auch von einem Deep-Neural-Network gesprochen.
