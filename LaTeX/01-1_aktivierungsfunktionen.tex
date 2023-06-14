@@ -7,9 +7,9 @@ verwendet, wenn das Ziel ein reeller Wert ist \cite{CA18}.
 $$\Phi(v) = v$$
 \paragraph{Nicht lineare Aktivierung}
 Um auch nicht lineare Probleme lösen zu können, werden nicht lineare Aktivierungsfunktionen verwendet. In den frühen Tagen der Entwicklung von neuralen Netzen wurden sign, sigmoid und hyperbolic tangent Funktionen genutzt.
-Die sign Funktion $\Phi(v) = \text{sign}(v)$ generiert nur binäre \{-1,+1\} Ausgaben. Aufgrund der Nichtstätigkeit der Funktion, können beim Trainieren keine Loss-Funktionen verwendet werden.
+Die sign Funktion $\Phi(v) = \text{sign}(v)$ generiert nur binäre \{-1,+1\} Ausgaben. Aufgrund der Nichtstetigkeit der Funktion, können beim Trainieren keine Loss-Funktionen verwendet werden.
 Die Sigmoid Funktion $\Phi(v) = \frac{1}{1 + e^{-v}}$ generiert Werte zwischen 0 und 1. Sie eignet sich deshalb für Rechnungen die als Wahrscheinlichkeiten interpetiert werden sollen.
-Der Graph der Tanh Funktion $\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$ hat eine ähneliche Form wie die der Sigmoid Funktion. Sie unterscheidet sich jedoch in der Skalierung, denn ihre Wertebereich liegt zwischen -1 und 1.
+Der Graph der Tanh Funktion $\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$ hat eine ähneliche Form wie die der Sigmoid Funktion. Sie unterscheidet sich jedoch in der Skalierung, denn ihr Wertebereich liegt zwischen -1 und 1.
 Die Tanh Funktion lässt sich auch durch die Sigmoid Funktion darstellen \cite{CA18}.
 $$\text{tanh}(v) = 2 \cdot \text{sigmoid}(2v) - 1$$
 Wenn die Ausgabe der Berechnung postitiv sowie negativ sein kann, ist die tanh Funktion der sigmoid Funktion vorzuziehen. Außerdem ist es einfacher zu trainieren, weil die Funktion Mittelwertzentriert
@@ -23,7 +23,7 @@ Eine weitere oft genutzte Aktivierungsfunktion ist die hard tanh Funktion $\Phi(
 
 \paragraph{Differenzierbarkeit von Aktivierungsfunktionen}
 Die meisten neuralen Netze verwenden das Gradienten-Abstiegsverfahren zum Lernen. \cite{CA18} Aus diesem Grund ist die Differenzierbarkeit von Aktivierungsfunkionen besonders wichtig. Die Ableitung der linearen Aktivierungsfunktion ist immer 1.
-Die Ableitung von $sign(v)$ ist 0 für alle Werte außer $v = 0$. Die fehlende Stätigkeit dieser Funktion ist einer der Gründe, weshalb die selten in Verlustfunktionen verwendet wird, auch wenn sie als Aktivierungsfunktion verwendet wurde. 
+Die Ableitung von $sign(v)$ ist 0 für alle Werte außer $v = 0$. Die fehlende Stetigkeit dieser Funktion ist einer der Gründe, weshalb diese selten in Verlustfunktionen verwendet wird, auch wenn sie als Aktivierungsfunktion verwendet wurde. 
 Alle anderen vorher aufgezählten Aktivierungsfunktionen sind differenzierbar. \cite{CA18}
 
 \begin{figure}[htbp]
