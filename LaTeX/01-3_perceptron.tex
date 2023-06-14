@@ -2,9 +2,9 @@
 \subsubsection{Perceptrons}
 Die simpelste Form eines Neuralen Netzwerks ist ein Perceptron. Es kann nur binäre Entscheidungen \{-1,+1\} treffen. Ein Perceptron besteht aus einer Input Layer und einem Output Node.
 Die Input Layer beinhaltet $d$ nodes welches $d$ Merkmale $\overline{X} = [x_1...x_d]$ mit Weights $\overline{W} = [w_1...w_d]$ übermittelt. Die lineare Aktivierungsfunktion sign berechnet
-dann die Vorhersage $\hat{y}$. \\
+dann die Vorhersage $\hat{y}$. \cite{CA18}\\
 $$\hat{y} = sign\{\overline{W} \cdot \overline{X}\} = sign\{\sum\limits^{d}_{j=1}w_jx_j\}$$\\
-In vielen Fällen wird ein nicht variables Element $b$ mit in der Rechnung berücksichtigt. Dies verursacht das der Mittelwert der Vorhersage nicht 0 ist.\\
+In vielen Fällen wird ein nicht variables Element $b$ mit in der Rechnung berücksichtigt. Dies verursacht das der Mittelwert der Vorhersage nicht 0 ist. \cite{CA18}\\
 $$\hat{y} = sign\{\overline{W} \cdot \overline{X} + b\} = sign\{\sum\limits^{d}_{j=1}w_jx_j + b\}$$\\
 \begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
@@ -29,4 +29,4 @@ $$\Delta L_{\text{smooth}} = \sum\limits_{(\overline{X},y)\in \mathcal{D}}(y - \
 Beim Trainieren eines Neuralen Netzwerks werden Eingabedaten $\overline{X}$ einzelt oder in kleinen Batches eingespeist um die Vorhersage $\hat{y}$ zu generieren. Die Weights werden dann durch den Fehlerwert $E(\overline{X}) = (y - \hat{y})$ aktualisiert.
 $$\overline{W} \Rightarrow \overline{W} + \alpha(y - \hat{y})\overline{X}$$
 Der Parameter $\alpha$ reguliert die Lernrate des Neuralen Netzwerks. Der Perceptron-Algorithmus durchläuft die Trainingsdaten mehrmals bis die Weight-Werte konvergieren. Ein solcher Durchlauf wird als Epoche bezeichnet.\\
-Der Perceptron-Algorithmus kann auch als stochastische Gradientenabstiegsmethode betrachtet werden. TODO Erklärung hier? 
+Der Perceptron-Algorithmus kann auch als stochastische Gradientenabstiegsmethode betrachtet werden. \cite{CA18}
