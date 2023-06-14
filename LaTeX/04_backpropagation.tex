@@ -1,4 +1,4 @@
-\newpage
+
 \thispagestyle{empty}
 \section{Backpropagation}\label{sec:backpropagation}   
 
@@ -54,7 +54,6 @@ Für jedes Gewicht und jeden Biaswert möchten wir bestimmen, wie stark der Fehl
 Hierbei werden die partiellen Ableitungen verwendet, die die Sensitivität einer Funktion in Bezug auf eine Änderung einer bestimmten Variable messen.
 Konkret suchen wir nach den Werten von $\frac{\partial C}{\partial w_{jk}^{l}}$ und $\frac{\partial C}{\partial b_{j}^{l}}$, die partiellen Ableitungen der Kostenfunktion (C) nach den Gewichten ($w_{jk}^{l}$) und Biaswerten ($b_{j}^{l}$).
 
-\newpage
 \subsection{Wie funktioniert der Backpropagation-Algorithmus}\label{subsec:backpropagation:fehlerrueckfuehrung}
 Für die Erklärung des Backpropagation-Algorithmus nehmen wir folgendes neuronales Netz an:
 \begin{figure}[H]
@@ -156,7 +155,6 @@ Auch diese Berechnung führen wir für jedes "tiefere" Weight (in dem Fall von d
 \end{align*}
 \noindent
 Die Berechnungen für die Bias-Werte sehen sehr ähnlich aus, daher werden diese hier nicht weiter ausgeführt.
-\newpage
 Somit kommt man auf die allgemeinen Formeln für die Backpropagation: 
 \begin{flalign*}
   \frac{\partial C}{\partial W^{(l)}} &= (\delta^{(l+1)})^T \cdot W^{(l+1)} \odot \frac{\partial A^{(l)}}{\partial Z^{(l)}} \odot X^{(l - 1)}\\
