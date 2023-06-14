@@ -21,6 +21,11 @@ von mehrschichtigen neuronalen Netzen einfacher machen.
 Zu den am häufigsten genutzten Aktivierungsfunktionen gehört ReLU (Rectified Linear Unit) $\Phi(v) = \text{max}\{v,0\}$. Das Ergebnis der ReLU Funktion ist 0, wenn die gewichtete Summe der Inputs $v$ kleiner 0 ist, sonst ist das Ergbenis das unveränderte $v$.
 Eine weitere oft genutzte Aktivierungsfunktion ist die hard tanh Funktion $\Phi(v) = \text{max}\{\text{min}[v,1],-1\}$. Das Ergbenis der hard tanh Funktion ist -1 für $v < 1$ oder 1 für $v > 1$. Sonst ist das Ergbenis das unveränderte $v$ \cite{CA18}. 
 
+\paragraph{Differenzierbarkeit von Aktivierungsfunktionen}
+Die meisten neuralen Netze verwenden das Gradienten-Abstiegsverfahren zum Lernen. \cite{CA18} Aus diesem Grund ist die Differenzierbarkeit von Aktivierungsfunkionen besonders wichtig. Die Ableitung der linearen Aktivierungsfunktion ist immer 1.
+Die Ableitung von $sign(v)$ ist 0 für alle Werte außer $v = 0$. Die fehlende Stätigkeit dieser Funktion ist einer der Gründe, weshalb die selten in Verlustfunktionen verwendet wird, auch wenn sie als Aktivierungsfunktion verwendet wurde. 
+Alle anderen vorher aufgezählten Aktivierungsfunktionen sind differenzierbar. \cite{CA18}
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.3\textwidth}
