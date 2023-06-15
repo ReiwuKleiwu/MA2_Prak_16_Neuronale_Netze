@@ -4,7 +4,7 @@ Die simpelste Form eines Neuralen Netzwerks ist ein Perceptron. Es kann nur bin�
 Die Input Layer beinhaltet $d$ nodes welches $d$ Merkmale $\overline{X} = [x_1...x_d]$ mit Weights $\overline{W} = [w_1...w_d]$ übermittelt. Die lineare Aktivierungsfunktion sign berechnet
 dann die Vorhersage $\hat{y}$. \cite{CA18}\\
 $$\hat{y} = sign\{\overline{W} \cdot \overline{X}\} = sign\{\sum\limits^{d}_{j=1}w_jx_j\}$$\\
-In vielen Fällen wird ein nicht variables Element $b$ mit in der Rechnung berücksichtigt. Dies verursacht das der Mittelwert der Vorhersage nicht 0 ist. \cite{CA18}\\
+In vielen Fällen wird ein nicht variables Element $b$ mit in der Rechnung berücksichtigt. Dies verursacht, dass der Mittelwert der Vorhersage nicht 0 ist. \cite{CA18}\\
 $$\hat{y} = sign\{\overline{W} \cdot \overline{X} + b\} = sign\{\sum\limits^{d}_{j=1}w_jx_j + b\}$$\\
 \begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
@@ -22,9 +22,9 @@ $$\hat{y} = sign\{\overline{W} \cdot \overline{X} + b\} = sign\{\sum\limits^{d}_
     \end{figure}
 
 \noindent 
-Durch der so genannten Minimierung lässt sich der Fehler der Vorhersage verringern. Hierzu werden neben den Features x, auch Labels y in einem Feature-Label Paar eingeführt. 
+Durch der sogenannten Minimierung lässt sich der Fehler der Vorhersage verringern. Hierzu werden neben den Features x, auch Labels y in einem Feature-Label Paar eingeführt. 
 $$\text{Minimize}_{\overline{W}}L = \sum\limits_{(\overline{X},y)\in \mathcal{D}}(y - \hat{y})^2 = \sum\limits_{(\overline{X},y)\in \mathcal{D}}(y - sign\{\overline{W} \cdot \overline{X}\})^2$$
-Diese Art der Minimierung wird auch als Loss-Funktion bezeichnet. Die obige Funktion führt zu einer treppenstufigen Loss-Ebene, welche für gradient-descent ungeignet ist. Um diesem Problem entgegen zu wirken, wird eine Smooth-Funktion angewendet.
+Diese Art der Minimierung wird auch als Loss-Funktion bezeichnet. Die obige Funktion führt zu einer treppenstufigen Loss-Ebene, welche für gradient-descent ungeignet ist. Um diesem Problem entgegenzuwirken, wird eine Smooth-Funktion angewendet.
 $$\Delta L_{\text{smooth}} = \sum\limits_{(\overline{X},y)\in \mathcal{D}}(y - \hat{y})\overline{X}$$
 Beim Trainieren eines Neuralen Netzwerks werden Eingabedaten $\overline{X}$ einzelt oder in kleinen Batches eingespeist um die Vorhersage $\hat{y}$ zu generieren. Die Weights werden dann durch den Fehlerwert $E(\overline{X}) = (y - \hat{y})$ aktualisiert.
 $$\overline{W} \Rightarrow \overline{W} + \alpha(y - \hat{y})\overline{X}$$

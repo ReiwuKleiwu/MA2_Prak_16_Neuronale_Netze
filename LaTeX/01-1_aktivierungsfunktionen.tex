@@ -8,18 +8,18 @@ $$\Phi(v) = v$$
 \paragraph{Nicht lineare Aktivierung}
 Um auch nicht lineare Probleme lösen zu können, werden nicht lineare Aktivierungsfunktionen verwendet. In den frühen Tagen der Entwicklung von neuralen Netzen wurden sign, sigmoid und hyperbolic tangent Funktionen genutzt.
 Die sign Funktion $\Phi(v) = \text{sign}(v)$ generiert nur binäre \{-1,+1\} Ausgaben. Aufgrund der Nichtstetigkeit der Funktion, können beim Trainieren keine Loss-Funktionen verwendet werden.
-Die Sigmoid Funktion $\Phi(v) = \frac{1}{1 + e^{-v}}$ generiert Werte zwischen 0 und 1. Sie eignet sich deshalb für Rechnungen die als Wahrscheinlichkeiten interpetiert werden sollen.
-Der Graph der Tanh Funktion $\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$ hat eine ähneliche Form wie die der Sigmoid Funktion. Sie unterscheidet sich jedoch in der Skalierung, denn ihr Wertebereich liegt zwischen -1 und 1.
+Die Sigmoid Funktion $\Phi(v) = \frac{1}{1 + e^{-v}}$ generiert Werte zwischen 0 und 1. Sie eignet sich deshalb für Rechnungen die als Wahrscheinlichkeiten interpretiert werden sollen.
+Der Graph der Tanh Funktion $\Phi(v) = \frac{e^{2v} - 1}{e^{2v} + 1}$ hat eine ähnliche Form wie die der Sigmoid Funktion. Sie unterscheidet sich jedoch in der Skalierung, denn ihr Wertebereich liegt zwischen -1 und 1.
 Die Tanh Funktion lässt sich auch durch die Sigmoid Funktion darstellen \cite{CA18}.
 $$\text{tanh}(v) = 2 \cdot \text{sigmoid}(2v) - 1$$
-Wenn die Ausgabe der Berechnung postitiv sowie negativ sein kann, ist die tanh Funktion der sigmoid Funktion vorzuziehen. Außerdem ist es einfacher zu trainieren, weil die Funktion Mittelwertzentriert
+Wenn die Ausgabe der Berechnung positiv sowie negativ sein kann, ist die tanh Funktion der sigmoid Funktion vorzuziehen. Außerdem ist es einfacher zu trainieren, weil die Funktion Mittelwertzentriert
 und der Gradient größer ist \cite{CA18}.
 
 \paragraph{Piecewise lineare Aktivierung}
-Historisch wurden die Sigmoid und Tanh Funktion zur Einführung von Nichtliniearität genutzt. Heutzutage sind piecewise linear activation Funktionen (Stückweise Linear) beliebter, weil diese das Trainieren 
+Historisch wurden die Sigmoid und Tanh Funktion zur Einführung von Nichtliniearität genutzt. Heutzutage sind piecewise linear activation Funktionen (Stückweise linear) beliebter, weil diese das Trainieren 
 von mehrschichtigen neuronalen Netzen einfacher machen.
-Zu den am häufigsten genutzten Aktivierungsfunktionen gehört ReLU (Rectified Linear Unit) $\Phi(v) = \text{max}\{v,0\}$. Das Ergebnis der ReLU Funktion ist 0, wenn die gewichtete Summe der Inputs $v$ kleiner 0 ist, sonst ist das Ergbenis das unveränderte $v$.
-Eine weitere oft genutzte Aktivierungsfunktion ist die hard tanh Funktion $\Phi(v) = \text{max}\{\text{min}[v,1],-1\}$. Das Ergbenis der hard tanh Funktion ist -1 für $v < 1$ oder 1 für $v > 1$. Sonst ist das Ergbenis das unveränderte $v$ \cite{CA18}. 
+Zu den am häufigsten genutzten Aktivierungsfunktionen gehört ReLU (Rectified Linear Unit) $\Phi(v) = \text{max}\{v,0\}$. Das Ergebnis der ReLU Funktion ist 0, wenn die gewichtete Summe der Inputs $v$ kleiner 0 ist, sonst ist das Ergebnis das unveränderte $v$.
+Eine weitere oft genutzte Aktivierungsfunktion ist die hard tanh Funktion $\Phi(v) = \text{max}\{\text{min}[v,1],-1\}$. Das Ergebnis der hard tanh Funktion ist -1 für $v < 1$ oder 1 für $v > 1$. Sonst ist das Ergebnis das unveränderte $v$ \cite{CA18}. 
 
 \paragraph{Differenzierbarkeit von Aktivierungsfunktionen}
 Die meisten neuralen Netze verwenden das Gradienten-Abstiegsverfahren zum Lernen. \cite{CA18} Aus diesem Grund ist die Differenzierbarkeit von Aktivierungsfunkionen besonders wichtig. Die Ableitung der linearen Aktivierungsfunktion ist immer 1.

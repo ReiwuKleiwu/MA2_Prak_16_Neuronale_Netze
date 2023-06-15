@@ -4,9 +4,9 @@ werden Verlustfunktionen beim Trainieren verwendet \cite{GBCL18}. Auch wie bei d
 viele Verlustfunktionen, welche erheblichen Einfluss auf das Ergebnis eines neuralen Netzes haben. Die Wahl der Verlustfunktionen
 hängt von der Architektur des neuralen Netzes und der Ausgabewerte der Output-Nodes ab. Für ein einfachen Perceptron wird eine 
 Verlustfunktion der Form $(y - \hat{y})^2$ verwendet. 
-Alternative Verlustfunkionen währen z.B. die hingle-loss-Funktion $L = \max\{0,1-y\cdot\hat{y}\}$, welche genutzt werden kann um z.B. die 
-Support Vector Machine Lernmethode zu implementieren. Für diese Verlustfunkion muss $y \in \{-1,+1\}$ gelten und $\hat{y}$ muss reelle Zahlen 
+Alternative Verlustfunktionen währen z.B. die hingle-loss-Funktion $L = \max\{0,1-y\cdot\hat{y}\}$, welche genutzt werden kann, um z.B. die 
+Support Vector Machine Lernmethode zu implementieren. Für diese Verlustfunktion muss $y \in \{-1,+1\}$ gelten und $\hat{y}$ muss reelle Zahlen 
 darstellen \cite{CA18}.\\
-Für probabilistische Vorhersagen bei denen $y \in \{-1,+1\}$ gilt und $\hat{y}$ eine reele Zahl ist,  eignet sich 
-$L = \log(1 + \exp(-y \cdot \hat{y}))$ als Verlustfunktion. Diese Art von Verlustfuntktion implementiert die logisitical Regression 
+Für probabilistische Vorhersagen, bei denen $y \in \{-1,+1\}$ gilt und $\hat{y}$ eine reelle Zahl ist, eignet sich 
+$L = \log(1 + \exp(-y \cdot \hat{y}))$ als Verlustfunktion. Diese Art von Verlustfunktion implementiert die logisitical Regression 
 Machine Learning Methode \cite{CA18}.
