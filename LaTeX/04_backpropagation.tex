@@ -46,6 +46,7 @@ Verlustfunktion nutzen um das neuronale Netz lernen zu lassen. Der Ausgabewert d
 als auch von allen Biases $b$ des neuronalen Netzes ab. Nun sucht man die konkreten Werte für die Weights und Biases, damit die 
 Verlustfunktion so klein wie möglich wird. Dies tut man mit dem bereits oben beschriebenen Gradientenverfahren. Man braucht also den 
 negativen Gradientenvektor der Verlustfunktion.
+\cite{MN19}
 
 \subsection{Grundidee Backpropagation}\label{subsec:backpropagation:grundiee}
 Backpropagation stellt einen effizienten Algorithmus zur Berechnung dieses komplexen Gradientenvektors dar, den wir benötigen, um den Fehler in einem neuronalen Netzwerk zu minimieren.
@@ -53,13 +54,14 @@ Der Fehler an der Ausgabeschicht muss durch das gesamte Netz propagiert werden, 
 Für jedes Gewicht und jeden Biaswert möchten wir bestimmen, wie stark der Fehler von diesem abhängt. 
 Hierbei werden die partiellen Ableitungen verwendet, die die Sensitivität einer Funktion in Bezug auf eine Änderung einer bestimmten Variable messen.
 Konkret suchen wir nach den Werten von $\frac{\partial C}{\partial w_{jk}^{l}}$ und $\frac{\partial C}{\partial b_{j}^{l}}$, die partiellen Ableitungen der Kostenfunktion (C) nach den Gewichten ($w_{jk}^{l}$) und Biaswerten ($b_{j}^{l}$).
+\cite{MN19}
 
 \subsection{Wie funktioniert der Backpropagation-Algorithmus}\label{subsec:backpropagation:fehlerrueckfuehrung}
 Für die Erklärung des Backpropagation-Algorithmus nehmen wir folgendes neuronales Netz an:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{Sources/04-05_backprop_nn_example.png}
-  \caption{Hier Quelle angeben}
+  \caption{Quelle: https://towardsdatascience.com/understanding-backpropagation-abcc509ca9d0}
 \end{figure}
 \noindent
 Der gesamte Fehler $C$ wurde in der Abbildung auf die zwei Output-Neuronen über $e_1^{(3)}$ und $e_2^{(3)}$ aufgeteilt.
@@ -161,3 +163,4 @@ Somit kommt man auf die allgemeinen Formeln für die Backpropagation:
   \delta^{(L)} &= \frac{\partial C}{\partial A^{(L)}} \odot \frac{\partial A^{(L)}}{\partial Z^{(L)}}\\
   \frac{\partial C}{\partial B^{l}} &= \delta^l
 \end{flalign*}
+\cite{MN19}

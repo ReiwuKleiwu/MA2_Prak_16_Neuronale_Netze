@@ -20,6 +20,7 @@ Natürlich könnte man nun denken, dass man dies durch bereits bekannte Methoden
 bei einer Funktion mit tausenden oder mehr Parametern sehr schwierig oder gar unmöglich.
 Für neuronale Netze nutzt man das Gradientenverfahren konkret um ein Minimum der Verlustfunktion zu bestimmen. 
 Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne Gewicht und jeder Bias-Wert anpassen, hierdurch ''lernt'' das neuronale Netz.
+\cite{TR17}
 
 \subsubsection{Was ist der Gradient einer Funktion?}\label{subsec:gradientenverfahren:was_ist_gradient}
   Der Gradient einer Funktion $f(x_{1}, x_{2}, ... , x_{n})$ ist definiert durch die Funktion $\nabla f(x_{0})$, welche den Spaltenvektor $V$ liefert, in welchem jede Komponente $v_1$ bis $v_n$ die partielle Ableitung der Funktion $f$ nach dem jeweiligen Parameter 
@@ -57,6 +58,7 @@ Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne G
       6\\
     \end{bmatrix}
   \end{align*}
+  \cite{CA18}
 
 \subsection{Grundkonzepte des Gradientenverfahrens}\label{subsec:gradientenverfahren:grundkonzepte}
 
@@ -177,6 +179,7 @@ Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne G
   \bigbreak\noindent
   Die Auswahl des Startpunktes $x_{0}$ sowie die Wahl der Lernrate $\eta$ spielen eine große Rolle beim Erfolg des
   Gradientenverfahrens, hierauf wird hier jedoch nicht weiter eingegangen.
+  \cite{CA18}
 \iffalse
 \subsubsection{Wie funktioniert das Gradientenverfahren?}\label{subsec:gradientenverfahren:wie_funktioniert}
 'Das Gradienten Verfahren (GV) ist ein iteratives Verfahren mit dem Ziel ein Minimum einer Funktion zu finden. Hierbei wird in jedem Schritt ein Stück in die Richtung des Gradienten
