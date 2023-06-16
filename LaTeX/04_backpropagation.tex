@@ -21,12 +21,12 @@ Eine weitverbreitete Verlustfunktion ist der sogenannte Mean Squared Error (MSE)
 Bei Anwendung auf neuronale Netze lässt sich diese Funktion wie folgt ausdrücken:
 
 \begin{eqnarray}  
-  C(w,b) = \frac{1}{2n} \sum_x \| y(x) - a\|^2.
+  C(w,b) = \frac{1}{2n} \sum_x \| \hat{y} - a\|^2.
 \end{eqnarray}
 
 \noindent
 In dieser Gleichung steht $w$ für die Gesamtheit aller Gewichte im neuronalen Netz, während $b$ alle Biases repräsentiert.
-$n$ bezeichnet die Anzahl der Trainingsdatensätze und $y(x)$ ist der Vektor der Soll-Werte nach einem einzigen Trainingsbeispiel.
+$n$ bezeichnet die Anzahl der Trainingsdatensätze und $\hat{y}$ ist der Vektor der Soll-Werte nach einem einzigen Trainingsbeispiel.
 Schließlich ist $a$ der Vektor der tatsächlichen Ausgabewerte. 
 \bigbreak\noindent
 Wichtige Eigenschaften der MSE Verlustfunktion sind zum einen, dass sie niemals negativ wird, da jeder Term der Funktion positiv ist.
@@ -68,10 +68,10 @@ Wenn man nun beispielsweise ausrechnen möchte welchen Einfluss das Gewicht $w_{
 $\frac{\partial C}{\partial w_{11}^{(2)}}$ berechnen. Hierfür macht es Sinn, dass man sich anschaut wie das Weight $w_{11}^{(2)}$ in den Fehler C einfließt.
 Das Gewicht $w_{11}^{(2)}$ geht nur in den Teilfehler $e_1$ ein, daher muss man auch nur diesen betrachten.
 \begin{flalign*}  
-  e_{1}^{(3)} &= (y(x) - a_1^{(2)})^2\\
+  e_{1}^{(3)} &= (\hat{y} - a_1^{(2)})^2\\
   a_{1}^{(2)} &= \sigma(z_{1}^{(2)})\\
   z_{1}^{(2)} &= w_{11}^{(2)} * a_{1}^{(1)} + w_{12}^{(2)} * a_{2}^{(1)} + b_1^{(2)}\\
-  \Rightarrow e_{1}^{(3)} &= (y(x) - \sigma(w_{11}^{(2)} * a_{1}^{(1)} + w_{12}^{(2)} * a_{2}^{(1)} + b_1^{(2)}))^2
+  \Rightarrow e_{1}^{(3)} &= (\hat{y} - \sigma(w_{11}^{(2)} * a_{1}^{(1)} + w_{12}^{(2)} * a_{2}^{(1)} + b_1^{(2)}))^2
 \end{flalign*}
 \noindent
 Möchte man nun die oben genannte partielle Ableitung ausrechnen, dann macht man sich die Kettenregeln zu Nutze und es gilt: 
@@ -115,7 +115,7 @@ Jetzt muss man sich noch anschauen wie man die Abhängigkeit des Fehlers eines t
 berechnet, z.B. $\frac{\partial C}{\partial w_{11}^{(1)}}$. Die Grundidee bleibt die selbe, jedoch können nun mehrere Pfade vom gesamten Fehler 
 zu diesem Weight führen. In diesem Fall addieren wir die Kettenregel-Terme beider Pfade zusammen, bis sie sich an einem Neuron treffen.
 \begin{align*}  
-  \frac{\partial C}{\partial w_{11}^{(1)}} = (\frac{\partial e_1^{(3)}}{\partial a_1^{(2)}}\frac{\partial a_1^{(2)}}{\partial z_1^{(2)}}\frac{\partial z_1^{(2)}}{\partial a_1^{(1)}} + \frac{\partial e_2^{(3)}}{\partial a_2^{(2)}}\frac{\partial a_2^{(2)}}{\partial z_2^{(2)}}\frac{\partial z_2^{(2)}}{\partial a_1^{(1)}})
+  \frac{\partial C}{\partial w_{11}^{(1)}} =  \left(\frac{\partial e_1^{(3)}}{\partial a_1^{(2)}}\frac{\partial a_1^{(2)}}{\partial z_1^{(2)}}\frac{\partial z_1^{(2)}}{\partial a_1^{(1)}} + \frac{\partial e_2^{(3)}}{\partial a_2^{(2)}}\frac{\partial a_2^{(2)}}{\partial z_2^{(2)}}\frac{\partial z_2^{(2)}}{\partial a_1^{(1)}} \right)
   \frac{\partial a_1^{(1)}}{\partial z_1^{(1)}}\frac{\partial a_1^{(1)}}{\partial w_{11}^{(1)}}
 \end{align*}
 In dieser Gleichung sieht man nun auch die sich wiederholenden $\delta^{L}$ Terme.
