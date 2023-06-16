@@ -16,24 +16,31 @@ test_images = test_images.reshape((10000, 28, 28, 1))
 # Normalisieren Sie die Bilder auf Werte zwischen 0 und 1
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
-# ändere Label zu 1, wenn 5 sonst 0
-train_labels = np.where(train_labels == 5, 1, 0)
-test_labels = np.where(test_labels == 5, 1, 0)
+# Konvertieren Sie die Labels in kategorische Daten
+train_labels = to_categorical(train_labels)
+test_labels = to_categorical(test_labels)
 
 # Erstellen Sie das Modell
 model = Sequential()
-# Bild in Vektor umwandeln und Input Layer mit 28*28*1 Neuronen erstellen
+
+# Fügen Sie das erste Convolutional Layer hinzu
 model.add(Flatten(input_shape=(28, 28, 1)))
-# Output Layer mit einem Neuron erstellen
-model.add(Dense(1, activation='sigmoid'))
+
+# Fügen Sie ein MaxPooling Layer hinzu
+model.add(Dense(64, activation='relu'))
+
+# Fügen Sie das Output Layer hinzu. Da wir MNIST verwenden, haben wir 10 Nodes.
+model.add(Dense(10, activation='softmax'))
+
 # Kompilieren Sie das Modell
 model.compile(optimizer='adam',
-              loss='binary_crossentropy',
+              loss='categorical_crossentropy',
               metrics=['accuracy'])
+
 # Trainieren Sie das Modell
 model.fit(train_images, train_labels, epochs=50, batch_size=64)
+
 # Evaluieren Sie das Modell
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print('Test accuracy:', test_acc)
-
-# Test accuracy konvergiert gegen 0.977
+# Test accuracy konvergiert gegen 1.000
