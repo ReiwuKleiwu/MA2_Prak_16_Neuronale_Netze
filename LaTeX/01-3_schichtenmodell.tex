@@ -13,3 +13,9 @@ Multilayer-Perceptrons und feed-forward neuronale Netze im Allgemeinen sind auß
 Solche Netze sind fähig, auch komplexere Muster zu erkennen.
 Durch eine Erhöhung der Anzahl an Schichten kann die Leistungsfähigkeit des Netzes weiter erhöht werden, jedoch steigt auch die benötigte Rechenleistung an.
 Wenn ein neuronales Netz über zahlreiche Schichten verfügt, dann wird auch von einem Deep-Neural-Network gesprochen.
+
+\bigbreak\noindent
+Eine Variante der neuronalen Netze sind sogenannte Convolutional Neural Networks (CNNs). Diese Netze sind aufgrund der speziellen verwendeten Schichten besonders gut dazu geeignet, Muster in Bildern zu erkennen und eignen sich daher für die Bilderkennung.
+CNNs setzen vor allem zwei spezielle Arten von Schichten ein, die convolutional layers und die pooling layers.
+Convolutional layer setzen mehrere Filter Matrizen ein, wodurch besonders gut Muster in 2D Matrizen erkannt werden können, da diese Filter auch immer umliegende Pixel in ihre Berechnungen einbeziehen, was ihnen erlaubt, beispielsweise Kanten und Formen zu erkennen.
+Die Pooling Layers hingegen dienen dazu, die Eingabe zu downscalen, indem sie benachbarte Merkmale aggregieren. Eine Implementation davon ist MaxPooling2D, ein Pooling Layer, der zweidimensionale Eingabedaten herunterskaliert, indem er aus einem Segment der Eingabe immer nur den maximalen Wert auswählt. Das kann dazu beitragen, dass das Netz nicht overfitted wird und robuster gegen Abweichungen in den Eingabedaten wird.
