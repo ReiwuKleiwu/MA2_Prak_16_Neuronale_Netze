@@ -2,7 +2,7 @@
 Neuronale Netze sind in einer Struktur aus mehreren aufeinanderfolgenden Schichten aufgebaut.
 Man unterscheidet grundlegend zwischen drei verschiedenen Arten von Schichten, der Eingabeschicht (''input layer''), den versteckten Schichten (''hidden layer'') und der Ausgabeschicht (''output layer'').
 Die einzige Aufgabe der Eingabeschicht ist es, die Daten der Eingabevariablen darzustellen und an die folgenden Neuronen weiterzugeben, was auch bedeutet, dass diese Neuronen keine Aktivierungsfunktionen verwenden.
-Die Berechnungen, die in den Hidden-Layers stattfinden sind nicht nach außen hin sichtbar, lediglich die Ausgabe des Output-Layers gelangt nach außen.
+Die Berechnungen, die in den Hidden-Layers stattfinden sind nicht nach außen hin sichtbar, lediglich die Ausgabe des Output-Layers gelangt nach außen. \cite{CA18}
 
 \bigbreak\noindent
 Die einfachste Variante eines neuronalen Netzes ist das Single-Layer-Perceptron. Dieses besteht lediglich aus einem Input-Layer, der die Eingabedaten in das Netz einspeist und einem Output-Layer, der die Ergebnisse aus dem Netz ausgibt.
@@ -12,10 +12,10 @@ Es existieren jedoch auch neuronale Netze mit mehreren Schichten, wie zum Beispi
 Multilayer-Perceptrons und feed-forward neuronale Netze im Allgemeinen sind außerdem wie ein azyklischer Graph aufgebaut.
 Solche Netze sind fähig, auch komplexere Muster zu erkennen.
 Durch eine Erhöhung der Anzahl an Schichten kann die Leistungsfähigkeit des Netzes weiter erhöht werden, jedoch steigt auch die benötigte Rechenleistung an.
-Wenn ein neuronales Netz über zahlreiche Schichten verfügt, dann wird auch von einem Deep-Neural-Network gesprochen.
+Wenn ein neuronales Netz über zahlreiche Schichten verfügt, dann wird auch von einem Deep-Neural-Network gesprochen. \cite{CA18}
 
 \bigbreak\noindent
 Eine Variante der neuronalen Netze sind sogenannte Convolutional Neural Networks (CNNs). Diese Netze sind aufgrund der speziellen verwendeten Schichten besonders gut dazu geeignet, Muster in Bildern zu erkennen und eignen sich daher für die Bilderkennung.
 CNNs setzen vor allem zwei spezielle Arten von Schichten ein, die convolutional layers und die pooling layers.
 Convolutional layer setzen mehrere Filter Matrizen ein, wodurch besonders gut Muster in 2D Matrizen erkannt werden können, da diese Filter auch immer umliegende Pixel in ihre Berechnungen einbeziehen, was ihnen erlaubt, beispielsweise Kanten und Formen zu erkennen.
-Die Pooling Layers hingegen dienen dazu, die Eingabe zu downscalen, indem sie benachbarte Merkmale aggregieren. Eine Implementation davon ist MaxPooling2D, ein Pooling Layer, der zweidimensionale Eingabedaten herunterskaliert, indem er aus einem Segment der Eingabe immer nur den maximalen Wert auswählt. Das kann dazu beitragen, dass das Netz nicht overfitted wird und robuster gegen Abweichungen in den Eingabedaten wird.
+Die Pooling Layers hingegen dienen dazu, die Eingabe zu downscalen, indem sie benachbarte Merkmale aggregieren. Eine Implementation davon ist MaxPooling2D, ein Pooling Layer, der zweidimensionale Eingabedaten herunterskaliert, indem er aus einem Segment der Eingabe immer nur den maximalen Wert auswählt. Das kann dazu beitragen, dass das Netz nicht overfitted wird und robuster gegen Abweichungen in den Eingabedaten wird. \cite{CA18} \cite{KSH17}
