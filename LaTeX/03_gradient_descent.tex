@@ -18,7 +18,7 @@
 Das Gradientenverfahren (engl. gradient descent) wird genutzt, um ein Minimum einer Funktion mit beliebig vielen Parametern / Dimensionen zu finden.
 Natürlich könnte man nun denken, dass man dies durch bereits bekannte Methoden auch algebraisch berechnen könnte, jedoch wird dies 
 bei einer Funktion mit tausenden oder mehr Parametern sehr schwierig oder gar unmöglich.
-Für neuronale Netze nutzt man das Gradientenverfahren konkret um ein Minimum der Verlustfunktion zu bestimmen. 
+Für neuronale Netze nutzt man das Gradientenverfahren konkret, um ein Minimum der Verlustfunktion zu bestimmen. 
 Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne Gewicht und jeder Bias-Wert anpassen, hierdurch ''lernt'' das neuronale Netz.
 \cite{TR17}
 
@@ -69,7 +69,7 @@ Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne G
   Wie bereits oben erwähnt, gibt uns der Gradientenvektor $\nabla f(x_{0})$ einer Funktion $f(x_{1}, x_{2}, ... , x_{n})$ die Richtung des steilsten Anstieges vom Punkt $x_0$ aus gesehen.
   Passen wir also jeden Parameter $x_{i}$ um den durch den Gradientenvektor gegebenen Wert $v_{i}$ an, bewegen wir uns damit weiter in Richtung des steilsten Anstieges. 
   Da wir uns beim Gradientenverfahren aber für das Minimum einer Funktion interessieren, geht man stattdessen in die entgegengesetzte Richtung
-  des Gradientenvektors $-\nabla f(x_{0})$, also die Richtung des steilsten Abstiegs. Der Gradientenvektor gibt jedoch nicht, an wie weit man in die Richtung des steilsten 
+  des Gradientenvektors $-\nabla f(x_{0})$, also die Richtung des steilsten Abstiegs. Der Gradientenvektor gibt jedoch nicht an, wie weit man in die Richtung des steilsten 
   Abstiegs gehen sollte. Um also zu verhindern, dass man das Minimum 'überschreitet' moderiert man die Schrittweite durch eine sogenannte Lernrate $\eta$.
   Der Startpunkt $x_{0}$ muss außerdem zu Beginn des Gradientenverfahrens zufällig ausgewählt werden.
   Damit haben wir die Grundidee des Gradientenverfahrens: 
@@ -173,9 +173,9 @@ Durch diese Berechnung lässt sich mithilfe der Backpropagation jedes einzelne G
     \end{bmatrix} \Rightarrow f(0.5, 0.04) = 0.76
     \\\\
   \end{align*}
-  Wie man sieht nähern sich unsere Funktionswerte mit jedem Iterationsschritt
+  Wie man sieht, nähern sich unsere Funktionswerte mit jedem Iterationsschritt
   der 0. Würde man das Gradientenverfahren einige Iterationen weiter ausführen, so 
-  würde man schlussendlich die Werte $x = 0$ und $y = 0$ rausbekommen. Dort liegt unser Minimum.
+  würde man schlussendlich die Werte $x = 0$ und $y = 0$ herausbekommen. Dort liegt unser Minimum.
   \bigbreak\noindent
   Die Auswahl des Startpunktes $x_{0}$ sowie die Wahl der Lernrate $\eta$ spielen eine große Rolle beim Erfolg des
   Gradientenverfahrens, hierauf wird hier jedoch nicht weiter eingegangen.

@@ -30,7 +30,7 @@ $n$ bezeichnet die Anzahl der Trainingsdatensätze und $\hat{y}$ ist der Vektor 
 Schließlich ist $a$ der Vektor der tatsächlichen Ausgabewerte. 
 \bigbreak\noindent
 Wichtige Eigenschaften der MSE Verlustfunktion sind zum einen, dass sie niemals negativ wird, da jeder Term der Funktion positiv ist.
-Außerdem sieht man recht einfach, dass $C(w, b) \approx 0$ gilt, wenn die die Soll-Werte ungefähr gleich den tatsächlichen Ausgabewerten sind.
+Außerdem sieht man recht einfach, dass $C(w, b) \approx 0$ gilt, wenn die Soll-Werte ungefähr gleich den tatsächlichen Ausgabewerten sind.
 \bigbreak\noindent
 Es wird der durchschnittliche Fehler über \textbf{alle} Trainingsbeispiele berechnet. 
 Es gibt Methoden, bei denen der Fehler nur für ausgewählte Teilgruppen (sog. Batches) von Trainingsbeispielen berechnet wird (Batch-Methode). 
@@ -39,7 +39,7 @@ Diese Vorgehensweise kann die Laufzeit des Backpropagation-Algorithmus verbesser
 
 \subsection{Wie lernen Neuronale Netze?}\label{subsec:backpropagation:lernen_nn}
 Da wir nun eine Verlustfunktion kennen, welche den Fehler eines neuronalen Netzes bestimmt, kann man eben jene
-Verlustfunktion nutzen um das neuronale Netz lernen zu lassen. Der Ausgabewert der Verlustfunktion hängt sowohl von allen Weights $w$ 
+Verlustfunktion nutzen, um das neuronale Netz lernen zu lassen. Der Ausgabewert der Verlustfunktion hängt sowohl von allen Weights $w$ 
 als auch von allen Biases $b$ des neuronalen Netzes ab. Nun sucht man die konkreten Werte für die Weights und Biases, damit die 
 Verlustfunktion so klein wie möglich wird. Dies tut man mit dem bereits oben beschriebenen Gradientenverfahren. Man braucht also den 
 negativen Gradientenvektor der Verlustfunktion.
@@ -63,8 +63,8 @@ Für die Erklärung des Backpropagation-Algorithmus nehmen wir folgendes neurona
 \noindent
 Der gesamte Fehler $C$ wurde in der Abbildung auf die zwei Output-Neuronen über $e_1^{(3)}$ und $e_2^{(3)}$ aufgeteilt.
 Außerdem wurde jedes Hidden-Neuron in seine gewichtete Summe $z$ und seine Aktivierungsfunktion $a$ aufgeteilt.
-Zuerst muss man sich überlegen, wie man die Weights / Biases, welche in die Output-Schicht einfließen anpasst.
-Wenn man nun beispielsweise ausrechnen möchte welchen Einfluss das Gewicht $w_{11}^{(2)}$ auf den Fehler C hat, dann muss man 
+Zuerst muss man sich überlegen, wie man die Weights / Biases, welche in die Output-Schicht einfließen, anpasst.
+Wenn man nun beispielsweise ausrechnen möchte, welchen Einfluss das Gewicht $w_{11}^{(2)}$ auf den Fehler C hat, dann muss man 
 $\frac{\partial C}{\partial w_{11}^{(2)}}$ berechnen. Hierfür macht es Sinn, dass man sich anschaut wie das Weight $w_{11}^{(2)}$ in den Fehler C einfließt.
 Das Gewicht $w_{11}^{(2)}$ geht nur in den Teilfehler $e_1$ ein, daher muss man auch nur diesen betrachten.
 \begin{flalign*}  
@@ -80,7 +80,7 @@ Möchte man nun die oben genannte partielle Ableitung ausrechnen, dann macht man
 \end{align*}
 \noindent
 Diesen Schritt würde man für jedes Weight ausführen, welches in ein Output-Neuron einfließt.
-Anstatt jede partielle Ableitung einzeln aufzuschreiben macht man sich das Hadamard-Produkt zu Nutze um effizient alle partiellen
+Anstatt jede partielle Ableitung einzeln aufzuschreiben, macht man sich das Hadamard-Produkt zu Nutze, um effizient alle partiellen
 Ableitungen dieser Weights zu berechnen:
 \begin{align*}
   \renewcommand{\arraystretch}{1.5}
@@ -111,8 +111,8 @@ Berechnungen öfters auftreten.
   \Rightarrow \frac{\partial C}{\partial W^{(2)}} = \delta^{(L)} \odot \frac{\partial Z^{(2)}}{\partial W^{(2)}}
 \end{align*}
 \noindent
-Jetzt muss man sich noch anschauen wie man die Abhängigkeit des Fehlers eines tiefer liegenden Weights / Biases 
-berechnet, z.B. $\frac{\partial C}{\partial w_{11}^{(1)}}$. Die Grundidee bleibt die selbe, jedoch können nun mehrere Pfade vom gesamten Fehler 
+Jetzt muss man sich noch anschauen, wie man die Abhängigkeit des Fehlers eines tiefer liegenden Weights / Biases 
+berechnet, z.B. $\frac{\partial C}{\partial w_{11}^{(1)}}$. Die Grundidee bleibt dieselbe, jedoch können nun mehrere Pfade vom gesamten Fehler 
 zu diesem Weight führen. In diesem Fall addieren wir die Kettenregel-Terme beider Pfade zusammen, bis sie sich an einem Neuron treffen.
 \begin{align*}  
   \frac{\partial C}{\partial w_{11}^{(1)}} =  \left(\frac{\partial e_1^{(3)}}{\partial a_1^{(2)}}\frac{\partial a_1^{(2)}}{\partial z_1^{(2)}}\frac{\partial z_1^{(2)}}{\partial a_1^{(1)}} + \frac{\partial e_2^{(3)}}{\partial a_2^{(2)}}\frac{\partial a_2^{(2)}}{\partial z_2^{(2)}}\frac{\partial z_2^{(2)}}{\partial a_1^{(1)}} \right)
